@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 //import {useSpring, animated} from 'react-spring'
 
 import './bannerPromocion.scss'
@@ -11,15 +11,25 @@ import aws from '../../../../config/aws';
 import TweenOne from 'rc-tween-one';
 import BannerAnim, { Element } from 'rc-banner-anim';
 import 'rc-banner-anim/assets/index.css';
+import { makeStyles } from '@material-ui/styles';
+import { MenuContext } from '../../../../context/carritoContext';
 const BgElement = Element.BgElement;
 
 
  function Banner_Largo(props) {
     const {banner, imagenLocal } = props;
+    const { colores } = useContext(MenuContext);
 
     /* const handleSelect = (selectedIndex, e) => {
 		setIndex(selectedIndex);
     }; */
+
+    const useStyles = makeStyles({
+		text: {
+			color: colores.bodyPage.text
+		}
+	});
+	const classes = useStyles();
     
     const render = banner.banners.map((banner, index) => {
 
@@ -27,7 +37,7 @@ const BgElement = Element.BgElement;
             <div key={index} className="mt-4 cont-principal">
                 {banner.mostrarTitulo !== false ? (
                     <TweenOne key="demo" animation={{ y: 30, opacity: 0, type: 'from', delay: 800 }}>
-                        <h1 className="tit-banner font-prin">{banner.tipo.categoria || banner.tipo.temporada }</h1>
+                        <h1 className={"tit-banner font-prin " + classes.text}>{banner.tipo.categoria || banner.tipo.temporada }</h1>
                     </TweenOne>
                  ) : ""}
 

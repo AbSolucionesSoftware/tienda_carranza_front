@@ -1,0 +1,8 @@
+.hidden-sm{
+    display: block;
+}
+@media only screen and (max-width: 539px) {
+    .hidden-sm{
+        display: none;
+    }
+}

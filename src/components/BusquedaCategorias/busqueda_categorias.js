@@ -6,7 +6,6 @@ import Spin from '../Spin';
 import './busqueda_categorias.scss';
 import { MenuContext } from '../../context/carritoContext';
 
-
 function BusquedaCategorias(props) {
 	const categoria = props.match.params.categoria;
 	const subcategoria = props.match.params.subcategoria;

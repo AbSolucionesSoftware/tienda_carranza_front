@@ -2,14 +2,14 @@
 import React from 'react';
 import Carousel from './Carusel_ofertas/carousel';
 /* import ConsultaProductos from './Productos/consulta_productos'; */
-import Ofertas from './Ofertas/ofertasHome';
+/* import Ofertas from './Ofertas/ofertasHome'; */
 import BannerInformativo from './Datos_tienda/banner_informativo'
 import Consulta_Banners from './BannerPromociones/consultaBanners';
-import Banner_Promocionales from './BannerPromociones/bannerPromocionales';
+/* import Banner_Promocionales from './BannerPromociones/bannerPromocionales';
 import Datos_tienda from './Datos_tienda/datos_tienda';
 import OfertasIzquierda from './Ofertas/OfertasHome/ofertasIzquierda';
 import OfertasDerecha from './Ofertas/OfertasHome/ofertasDerecha';
-import OfertasCentro from './Ofertas/OfertasHome/ofertasCentro';
+import OfertasCentro from './Ofertas/OfertasHome/ofertasCentro'; */
 
 import './home.scss'
 

@@ -1,34 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 
 import {withRouter } from 'react-router-dom';
-import clienteAxios from '../../../config/axios';
+import { MenuContext } from '../../../context/carritoContext';
 import Banner_Promocionales from './bannerPromocionales';
 
-
-// import aws from '../../../../config/aws';
-
-function Consulta_Banners(props) {
-
-    const [ banners, setBanners ] = useState([]);
-
-    useEffect(() => {
-		const obtenerBanner = async () => {
-			await clienteAxios
-				.get('/banner/')
-				.then((res) => {
-					setBanners(res.data);
-				})
-                .catch((res) => {});
-		};
-		obtenerBanner();
-	}, []);
-	
-
-    
+function Consulta_Banners() {
+	const { datosContx } = useContext(MenuContext);
 
     return (
         <div className="container-fluid">
-			 <Banner_Promocionales banner={banners}/>
+			 <Banner_Promocionales banner={datosContx.banners}/>
         </div>
     )
 }

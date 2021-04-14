@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import aws from '../../../../config/aws';
 // import DOMPurify from 'dompurify';
 import { Card, Tooltip } from 'antd';
@@ -6,11 +6,22 @@ import { Link } from 'react-router-dom';
 import './productos.scss';
 // import { ShoppingCartOutlined } from '@ant-design/icons';
 import { formatoMexico, agregarPorcentaje } from '../../../../config/reuserFunction';
+import { MenuContext } from '../../../../context/carritoContext';
+import { makeStyles } from '@material-ui/styles';
 
 const gridStyle = { width: '100%', marginBottom: '1.5rem' };
 
 export default function CardSecundaria(props) {
 	const { productos } = props;
+	const { colores } = useContext(MenuContext);
+
+	const useStyles = makeStyles({
+		background: {
+			backgroundColor: colores.bodyPage.card.background,
+			color: colores.bodyPage.card.text
+		}
+	});
+	const classes = useStyles();
 
 	if (productos.precioPromocion) {
 		return (
@@ -49,15 +60,15 @@ export default function CardSecundaria(props) {
 									</div>
 								</div>
 							}
-							className="margen"
+							className={"margen " + classes.background} 
 						>
 							<div className=" row contenedor-precios-sec">
 								<div className="col-lg-6">
-									<h2 className="h5  rebajado-sec mr-2">
+									<h2 className={"h5  rebajado-sec mr-2 " + classes.background}>
 										${formatoMexico(productos.productoPromocion.precio)}
 									</h2>
 									
-									<h3 className="h5 card-precio-rebaja d-inline mr-1">
+									<h3 className={"h5 card-precio-rebaja d-inline mr-1 " + classes.background}>
 										${formatoMexico(productos.precioPromocion)}
 									</h3>
 								</div>
@@ -77,7 +88,7 @@ export default function CardSecundaria(props) {
 					<Card
 						hoverable 
 						style={gridStyle} 
-						className="contenedor-card-producto-secundario margen-b" 
+						className={"contenedor-card-producto-secundario margen-b " + classes.background}
 						bordered={false}
 					>
 						{productos.promocion.length !== 0 ? (
@@ -107,7 +118,7 @@ export default function CardSecundaria(props) {
 									</div>
 								</div>
 							}
-							className="margen-dentro"
+							className={"margen-dentro " + classes.background}
 						>
 							
 							{!productos.promocion.length ? (
@@ -115,7 +126,7 @@ export default function CardSecundaria(props) {
 									<div className="col-lg-7  margen-precios-promo">
 										<div className="contenedor-precios-sec infor-center margen-precios">
 											<Tooltip placement="top" title={formatoMexico(productos.precio)}>
-												<h3 className="font-prin " >${formatoMexico(productos.precio)}</h3>
+												<h3 className={"font-prin " + classes.background} >${formatoMexico(productos.precio)}</h3>
 											</Tooltip>
 										</div>
 									</div>
@@ -130,7 +141,7 @@ export default function CardSecundaria(props) {
 									return (
 										<div className="row contenedor-informacion">
 											<div className=" col-lg-6 infor-center contenedor-precios-sec margen-precios-promo" key={promo._id}>
-												<h2 className="font-peque precio-producto rebajado-sec mr-2">
+												<h2 className={"font-peque precio-producto rebajado-sec mr-2 " + classes.background}>
 													${formatoMexico(productos.precio)}
 												</h2>
 												<Tooltip placement="top" title={formatoMexico(promo.precioPromocion)}>

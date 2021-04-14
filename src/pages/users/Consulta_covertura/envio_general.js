@@ -3,7 +3,6 @@ import clienteAxios from "../../../config/axios";
 
 import { notification} from "antd";
 import { CheckCircleFilled } from '@ant-design/icons';
-import '../../../scss/styleEspinoza.scss'
 
 export default function Envio_General() {
   const [dataEstados, setDataEstados] = useState([]);

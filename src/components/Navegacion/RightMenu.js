@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import './navegacion.scss';
 import 'firebase/auth';
 import 'firebase/firestore';
@@ -32,7 +32,7 @@ function RightMenu(props) {
 			<Menu.Item key="/productos" className="navbar-menu-general nav-font-color">
 				Productos<Link to="/productos" />
 			</Menu.Item>
-			{ofertas.length ? (
+			{ofertas ? (
 				<Menu.Item key="/ofertas" className="navbar-menu-general nav-font-color">
 					Ofertas<Link to="/ofertas" />
 				</Menu.Item>
@@ -67,10 +67,7 @@ function RightMenu(props) {
 						) : decoded.imagenFireBase ? (
 							<Avatar size="large" src={decoded.imagenFireBase} />
 						) : (
-							<Avatar
-								size="large"
-								src={aws+decoded.imagen}
-							/>
+							<Avatar size="large" src={aws + decoded.imagen} />
 						)
 					}
 				>
@@ -101,10 +98,7 @@ function RightMenu(props) {
 								<p>{decoded.nombre.charAt(0)}</p>
 							</Avatar>
 						) : (
-							<Avatar
-								size="large"
-								src={aws+decoded.imagen}
-							>
+							<Avatar size="large" src={aws + decoded.imagen}>
 								{/* <p>{decoded.nombre.charAt(0)}</p> */}
 							</Avatar>
 						)
