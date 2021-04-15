@@ -31,6 +31,12 @@ const Categorias = (props) => {
 		background: {
 			backgroundColor: colores.navPrimary.background,
 			color: colores.navPrimary.text,
+			'& span' : {
+				color: colores.navPrimary.text,
+			},
+			'& span:hover' : {
+				color: colores.navPrimary.hoverText,
+			}
 		},
 		hover: {
 			'& > .ant-menu-submenu-title:hover': {
@@ -83,13 +89,6 @@ const Categorias = (props) => {
 					);
 				})}
 			</SubMenu>
-			{
-				datosContx.navbar.filtroNav.length -1 !== index? (
-					<><Divider className={"divisor " + classes.divider} type="vertical"/></>
-				):(
-					null
-				)
-			}
 			</>
 
 		);

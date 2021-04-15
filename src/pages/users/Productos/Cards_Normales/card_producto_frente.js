@@ -47,29 +47,29 @@ export default function Card_Producto_Frente(props) {
 								</div>
 							}
 						>
-							<div className="contenedor-titulos-productos titulo-elipsis">
+							<div className="contenedor-titulos-productos">
 								<h1 className="titulo-producto text-color">{productos.productoPromocion.nombre}</h1>
-								<div
+								{/* <div
 								className="text-color"
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.productoPromocion.descripcion)
 									}}
-								/>
+								/> */}
 							</div>
-							<div className="contenedor-precios-productos">
-								<h2 className="h5 precio-producto text-color mr-2">
-									${formatoMexico(productos.productoPromocion.precio)}
-								</h2>
-								<h3 className="h5 precio-rebaja d-inline mr-1 text-color">
-									${formatoMexico(productos.precioPromocion)}
-								</h3>
-								<p className="h4 porcentaje-descuento d-inline">
-									{agregarPorcentaje(
-										productos.precioPromocion,
-										productos.productoPromocion.precio
-									)}%OFF
-								</p>
-							</div>
+								{/* <div className="contenedor-precios-productos">
+									<h2 className="h5 precio-producto text-color mr-2">
+										${formatoMexico(productos.productoPromocion.precio)}
+									</h2>
+									<h3 className="h5 precio-rebaja d-inline mr-1 text-color">
+										${formatoMexico(productos.precioPromocion)}
+									</h3>
+									<p className="h4 porcentaje-descuento d-inline">
+										{agregarPorcentaje(
+											productos.precioPromocion,
+											productos.productoPromocion.precio
+										)}%OFF
+									</p>
+								</div> */}
 						</Card>
 					</Card.Grid>
 				</Link>
@@ -107,16 +107,16 @@ export default function Card_Producto_Frente(props) {
 								</div>
 							}
 						>
-							<div className="frente contenedor-titulos-productos titulo-elipsis">
+							<div className="frente contenedor-titulos-productos">
 								<p className="font-secun titulo-producto text-color">{productos.nombre}</p>
-								<div
+								{/* <div
 									className="font-peque description text-color"
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.descripcion)
 									}}
-								/>
+								/> */}
 							</div>
-							{!productos.promocion.length ? (
+							{/* {!productos.promocion.length ? (
 								<div className="frente contenedor-precios-productos">
 									<h3 className="font-prin precio-rebaja text-color">${formatoMexico(productos.precio)}</h3>
 								</div>
@@ -136,7 +136,7 @@ export default function Card_Producto_Frente(props) {
 										</div>
 									);
 								})
-							)}
+							)} */}
 						</Card>
 					</Card.Grid>
 				</Link>

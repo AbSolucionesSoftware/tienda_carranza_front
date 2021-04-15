@@ -37,7 +37,6 @@ export default function LayoutBasic(props) {
 					}
 				})
 				.then((res) => {
-					console.log(res);
 					const datos = res.data;
 					setDatosContx(datos);
 					setLoading(false);
@@ -64,7 +63,7 @@ export default function LayoutBasic(props) {
 								}
 							},
 							footer: {
-								text: !colores.footer.text,
+								text: colores.footer.text,
 								background: colores.footer.background
 							}
 						});
