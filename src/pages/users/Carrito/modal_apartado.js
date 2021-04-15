@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { notification, Modal, Select, Divider, Alert, Avatar, List } from 'antd';
+import { notification, Modal, Select, Avatar, List, Button } from 'antd';
 import { formatoMexico } from '../../../config/reuserFunction';
 import { AgregarApartado } from './services/consultas_individuales';
-import DatosCliente from '../Vista_Producto/subs/datos_cliente';
+/* import DatosCliente from '../Vista_Producto/subs/datos_cliente'; */
 import aws from '../../../config/aws';
 
 const { Option } = Select;
@@ -10,7 +10,7 @@ const { Option } = Select;
 export default function ModalApartado(props) {
 	const [ visible, setVisible ] = props.visible;
 	const { carrito, cliente, token } = props;
-	const [ tipoEnvio, setTipoEnvio ] = useState('');
+	const [ tipoEnvio, setTipoEnvio ] = useState('REGOGIDO');
 
 	const handleOk = (e) => {
 		if (!tipoEnvio) {
@@ -20,9 +20,9 @@ export default function ModalApartado(props) {
 			});
 		} else {
 			let precio;
-			if(carrito.promocion && carrito.promocion.length !== 0){
+			if (carrito.promocion && carrito.promocion.length !== 0) {
 				precio = carrito.promocion.precioPromocion;
-			}else{
+			} else {
 				precio = carrito.idarticulo.precio;
 			}
 			AgregarApartado(
@@ -50,7 +50,7 @@ export default function ModalApartado(props) {
 	return (
 		<Modal
 			style={{ top: 20 }}
-			title="Nuevo Apartado"
+			title="Ordenar para retirar en restaurant"
 			visible={visible}
 			onCancel={handleCancel}
 			/* cancelText="Cancelar"
@@ -92,6 +92,10 @@ export default function ModalApartado(props) {
 								)}
 							</div>
 						</div>
+						<div className="d-flex">
+							<h6 className="mr-2">Ordenado por:</h6>
+							<p><b>{cliente.nombre}</b></p>
+						</div>
 					</div>
 				</List.Item>
 			</List>
@@ -103,22 +107,16 @@ export default function ModalApartado(props) {
 					<h4>Total: ${formatoMexico(carrito.promocion.precioPromocion * carrito.cantidad)}</h4>
 				)}
 			</div>
-			<div className="row mt-4">
-				<div className="col-lg-6 text-center">
-					<h6 className="font-weight-bold">Elegir tipo de envío: </h6>
-					<div>
-						<Select style={{ width: 200 }} placeholder="Selecciona un tipo" onChange={obtenerTipoEnvio}>
-							<Option value="ENVIO">Envío por paquetería</Option>
-							<Option value="REGOGIDO">Recoger a sucursal</Option>
-						</Select>
-					</div>
-				</div>
-				<div className="col-lg-6">
-					<Alert description="Para apartar un producto completa tus datos." type="info" showIcon />
-				</div>
+			<div className="d-flex justify-content-end align-items-center mt-1">
+				<Button
+					className="color-boton color-font-boton"
+					size="large"
+					style={{ width: 170 }}
+					onClick={() => handleOk()}
+				>
+					Ordenar
+				</Button>
 			</div>
-			<Divider>Tus datos</Divider>
-			<DatosCliente token={token} clienteID={cliente._id} tipoEnvio={tipoEnvio} enviarDatos={[ handleOk ]} />
 		</Modal>
 	);
 }

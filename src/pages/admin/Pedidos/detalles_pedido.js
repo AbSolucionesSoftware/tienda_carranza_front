@@ -5,7 +5,6 @@ import aws from '../../../config/aws';
 
 const DetallesPedido = (props) => {
 	const pedido = props.datosDetalle;
-
 	return (
 		<div className="card-p-pedidos">
 			<Divider className="text-center">Detalles del pedido</Divider>
@@ -40,6 +39,10 @@ const DetallesPedido = (props) => {
 				<p className="data-info-pedidos">{pedido.pedido.length}</p>
 			</div>
 			<div className="my-2">
+				<h6 className="titulos-info-pedidos">Tipo de Pago:</h6>
+				<p className="data-info-pedidos">{pedido.tipo_pago}</p>
+			</div>
+			<div className="my-2">
 				<h6 className="titulos-info-pedidos">Estado:</h6>
 				<Tag className="data-info-pedidos" color={pedido.estado_pedido === 'Entregado' ? '#5cb85c' : pedido.estado_pedido === 'Enviado' ? '#0088ff' : '#ffc401'}>
 					{pedido.estado_pedido}
@@ -58,11 +61,15 @@ const DetallesPedido = (props) => {
 			<Divider className="text-center">Detalles del cliente</Divider>
 			<div className="my-2">
 				<h6 className="titulos-info-pedidos">Cliente:</h6>
-				<p className="data-info-pedidos">{pedido.cliente.nombre}</p>
+				<p className="data-info-pedidos">{pedido.cliente.nombre} {pedido.cliente.apellido}</p>
 			</div>
 			<div className="my-2">
 				<h6 className="titulos-info-pedidos">Email:</h6>
 				<p className="data-info-pedidos">{pedido.cliente.email}</p>
+			</div>
+			<div className="my-2">
+				<h6 className="titulos-info-pedidos">Telefono:</h6>
+				<p className="data-info-pedidos">{pedido.cliente.telefono}</p>
 			</div>
 			{pedido.cliente.direccion.map((direccion) => {
 				return (

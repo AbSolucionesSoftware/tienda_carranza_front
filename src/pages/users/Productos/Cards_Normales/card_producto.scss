@@ -12,10 +12,11 @@
     max-width: 100%;
 }
 .titulo-producto{
+    height: auto;
     width: 100%;
 }
 .titulo-elipsis{
-    height: 35px;
+    height: 60px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -29,11 +30,12 @@
     width: 300px;
 }
 .size-col-prin{
-    min-width: 240px;
+    min-width: 480px;
 }
 .size-col-frente{
     min-width: 270px;
 }
+
 .contenedor-card-producto-principal{
     cursor: pointer;
     box-shadow: none;
@@ -44,14 +46,15 @@
     align-items: center;
 }
 .contenedor-card-producto-principal:hover .titulo-elipsis{
-    height: 100px;
+    height: 118px;
     transition-duration: .2s;
     transition-delay: .4s;
     /* transition: ease-out .2s; */
 }
+//contendores de productos del frente
 .contenedor-imagen-producto-principal{
-    height: 250px; 
-    width: 200px;
+    height: 230px; 
+    width: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,21 +63,35 @@
     max-width: 100%;
     max-height: 100%;
 }
+
+//contendores de productos 
+.contenedor-imagen-principal{
+    height: 264px; 
+    width: 440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imagen-principal{
+    max-width: 100%;
+    max-height: 100%;
+}
 // .rebajado{
 //     font-size: 15px;
 // }
 .contenedor-titulos-productos > p {
-    padding-top: 5%;
-    padding-left: 10%;
-    // font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding-left: 10%;
 }
 .contenedor-precios-productos > h2 {
     padding-left: 8%;
     // font-size: 15px;
 }
 .contenedor-precios-productos > h3 {
-    padding-top: 5%;
-    padding-left: 8%;
+    padding-top: 2%;
+    padding-left: 10%;
     // font-size: 22px;
 }
 .contenedor-precios-productos > p {
@@ -86,7 +103,13 @@
 }
 @media(max-width: 768px){
     .titulo-elipsis{
-        width: 130px;
+        width: auto;
+    }
+    .titulo-producto{
+        padding-left: 2%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        padding-right: 2%;
     }
     .contenedor-imagen-producto-principal{
         height: 250px; 
@@ -98,8 +121,20 @@
     .size-col{
         min-width: 170px;
     }
+    .contenedor-imagen-principal{
+        height: 200px; 
+        width: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .size-col-prin{
+        min-width: 360px;
+    }
     .contenedor-titulos-productos > p {
-        height: 30px;
+        
+        font-size: 20px;
+        height: 100px;
     }
 }
 

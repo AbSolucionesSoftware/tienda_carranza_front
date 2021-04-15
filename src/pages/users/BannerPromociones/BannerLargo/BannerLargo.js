@@ -14,7 +14,7 @@ import 'rc-banner-anim/assets/index.css';
 import { makeStyles } from '@material-ui/styles';
 import { MenuContext } from '../../../../context/carritoContext';
 const BgElement = Element.BgElement;
-
+//hola mundio
 
  function Banner_Largo(props) {
     const {banner, imagenLocal } = props;
@@ -23,14 +23,13 @@ const BgElement = Element.BgElement;
     /* const handleSelect = (selectedIndex, e) => {
 		setIndex(selectedIndex);
     }; */
-
     const useStyles = makeStyles({
 		text: {
-			color: colores.bodyPage.text
-		}
+			color: colores.bodyPage.text,
+		},
 	});
 	const classes = useStyles();
-    
+
     const render = banner.banners.map((banner, index) => {
 
         return (

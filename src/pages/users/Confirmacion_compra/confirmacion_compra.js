@@ -12,6 +12,7 @@ import Confirmacion_Final from './services/Confirmacion_Final';
 import Spin from '../../../components/Spin';
 
 import './confirmacion.scss';
+import TipoPago from './services/tipo_pago';
 
 const { Step } = Steps;
 
@@ -28,6 +29,7 @@ export default function Confirmacion_compra(props) {
 	const [ datosActualizados, setDatosActualizados ] = useState([]);
 	const [ idPago, setIdPago ] = useState([]);
 	/*     const [ disabledPrev, setDisabledPrev ] = useState(false); */
+	const [ pagoTarjeta, setPagoTarjeta ] = useState(false);
 
 	/// Declaracion de variables para los pasos
 	const [ current, setCurrent ] = useState(0);
@@ -91,6 +93,14 @@ export default function Confirmacion_compra(props) {
 			)
 		},
 		{
+			title: 'Tipo de pago',
+			content: (
+				<div>
+					<TipoPago prev={prev} current={current} setCurrent={setCurrent} pagoTarjeta={pagoTarjeta} setPagoTarjeta={setPagoTarjeta} />
+				</div>
+			)
+		},
+		{
 			title: 'Datos de compra',
 			content: (
 				<div>
@@ -109,6 +119,9 @@ export default function Confirmacion_compra(props) {
 						token={token}
 						history={history}
 						datosActualizados={datosActualizados}
+						pagoTarjeta={pagoTarjeta}
+						current={current}
+						setCurrent={setCurrent}
 					/>
 				</div>
 			)

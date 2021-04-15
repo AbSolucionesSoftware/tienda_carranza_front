@@ -10,7 +10,7 @@ export default function BannerInformativo() {
             <div className="row">
                 <div className="col-lg-8 card-informativa">
                     <p className="mr-5 mt-2 ">
-                        Regístrate para una mayor experiencia en nuestra tienda
+                        Regístrate para una mayor experiencia en nuestro restaurante
                     </p>    
                     <UserOutlined className style={{fontSize: 45}}/>
                   

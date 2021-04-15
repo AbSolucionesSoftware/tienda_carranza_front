@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './carrito.scss';
 import { List, InputNumber, Button, Select, Form, Tag, Modal } from 'antd';
-import { ShoppingCartOutlined, ExportOutlined, DeleteOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined, HomeOutlined,AlertOutlined, ExportOutlined, DeleteOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 import { formatoMexico, agregarPorcentaje } from '../../../config/reuserFunction';
 import { CarritoContext } from './context_carrito/context-carrito';
 import { MenuContext } from '../../../context/carritoContext';
@@ -192,9 +192,9 @@ function ListaCarrito(props) {
 									<Tag className="font-des-car detalles-carrito color-border-tags">
 										Categoria: {carrito.idarticulo.categoria}
 									</Tag>
-									<Tag className="font-des-car detalles-carrito color-border-tags">
+									{/* <Tag className="font-des-car detalles-carrito color-border-tags">
 										Género: {carrito.idarticulo.genero}
-									</Tag>
+									</Tag> */}
 									{carrito.idarticulo.color && carrito.idarticulo.color !== '' ? (
 										<Tag className="font-des-car detalles-carrito color-border-tags">
 											Color: {carrito.idarticulo.color}
@@ -340,26 +340,36 @@ function ListaCarrito(props) {
 						</Button>
 					</div>
 				) : (
-					<div className="d-flex justify-content-center">
-						<Button
-							type="link"
-							className="color-fonts font-des-car"
-							onClick={() => comprar()}
-							disabled={medidaDisponible !== '' ? true : false}
-						>
-							<ShoppingCartOutlined style={styles} />Comprar
-						</Button>
-						<Button type="link" className="color-fonts font-des-car" onClick={() => eliminar()}>
-							<DeleteOutlined style={styles} />Eliminar
-						</Button>
-						<Button
-							type="link"
-							className="color-fonts font-des-car"
-							onClick={() => apartado()}
-							disabled={medidaDisponible !== '' ? true : false}
-						>
-							<ExportOutlined style={styles} />Apartar
-						</Button>
+					<div className="row d-flex justify-content-center">
+						<div>
+							<Button
+								type="link"
+								className="d-flex justify-content-center align-items-center color-fonts font-des-car "
+								onClick={() => comprar()}
+								disabled={medidaDisponible !== '' ? true : false}
+							>
+								<AlertOutlined style={styles} />Ordenar individual
+							</Button>
+						</div>
+						<div>
+							<Button 
+								type="link" 
+								className="d-flex justify-content-center align-items-center color-fonts font-des-car" 
+								onClick={() => eliminar()}
+							>
+								<DeleteOutlined style={styles} />Eliminar producto
+							</Button>
+						</div>
+						<div>
+							<Button
+								type="link"
+								className="d-flex justify-content-center align-items-center color-fonts font-des-car"
+								onClick={() => apartado()}
+								disabled={medidaDisponible !== '' ? true : false}
+							>
+								<HomeOutlined style={styles} />Recoger individual
+							</Button>
+						</div>
 					</div>
 				)}
 			</div>

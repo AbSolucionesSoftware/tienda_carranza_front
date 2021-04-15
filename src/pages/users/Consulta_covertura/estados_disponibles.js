@@ -30,8 +30,8 @@ export default function Estados_disponibles() {
   const municipios = [];
 
   return (
-    <div>
-      <div className="text-center ">
+    <div className="mt-2 p-4">
+      <div className="text-center">
         <h3 className="font-secun">Tenemos envios a:</h3>
         {
           dataEstados.map((estados) => {

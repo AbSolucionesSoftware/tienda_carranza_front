@@ -227,6 +227,10 @@ function Pedidos(props) {
 									</Tag>
 								</div>
 								<div className="my-2">
+									<h6 className="titulos-info-pedidos">Tipo de Pago:</h6>
+									<p className="data-info-pedidos">{pedidos.tipo_pago}</p>
+								</div>
+								<div className="my-2">
 									<h6 className="titulos-info-pedidos">Total:</h6>
 									<p className="precio-total-pedidos data-info-pedidos">
 										$ {formatoMexico(pedidos.total)}

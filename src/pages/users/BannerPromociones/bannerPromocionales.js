@@ -1,4 +1,7 @@
 import React from 'react';
+
+import clienteAxios from '../../../config/axios';
+
 import Banner_Orientacion from './BannerOrientacion/banner_orientacion';
 import Banner_Largo from './BannerLargo/BannerLargo';
 import Banner_Doble from './BannerCuadrados/bannerDoble';

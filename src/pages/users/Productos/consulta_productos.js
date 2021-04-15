@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import clienteAxios from '../../../config/axios';
 import { notification, Result, Row } from 'antd';
 import Pagination from '../../../components/Pagination/pagination';
@@ -6,6 +6,8 @@ import queryString from 'query-string';
 import './Cards_Normales/card_producto.scss';
 import Card_Producto from './Cards_Normales/card_producto';
 import Spin from '../../../components/Spin';
+import { MenuContext } from '../../../context/carritoContext';
+import { makeStyles } from '@material-ui/styles';
 
 function ConsultaProductos(props) {
 	const { location, history } = props.propiedades;
@@ -14,6 +16,7 @@ function ConsultaProductos(props) {
 
 	const [ productos, setProductos ] = useState([]);
 	const [ loading, setLoading ] = useState(false);
+	const { colores } = useContext(MenuContext);
 
 	useEffect(
 		() => {
@@ -52,6 +55,16 @@ function ConsultaProductos(props) {
 			});
 	}
 
+	const useStyles = makeStyles({
+		background: {
+			backgroundColor: colores.bodyPage.background
+		},
+		text: {
+			color: colores.bodyPage.text
+		}
+	});
+	const classes = useStyles();
+
 	const render = productos.map((productos) => {
 		return (<Card_Producto key={productos._id} productos={productos} />);
 	});
@@ -66,9 +79,9 @@ function ConsultaProductos(props) {
 
 	return (
 		<Spin spinning={loading}>
-			<div className="contenedor-home-background">
+			<div className={"contenedor-home-background " + classes.background}>
 				<div className="row float-left">
-					<p className="font-prin mb-0 text-center">¡Conoce nuestros productos!</p>
+					<p className={"font-prin mb-0 text-center " + classes.text}>¡Conoce nuestro Menú!</p>
 				</div>
 			</div>
 			<div className="d-flex justify-content-center align-items-center">

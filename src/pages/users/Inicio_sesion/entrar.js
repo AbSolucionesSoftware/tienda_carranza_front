@@ -1,15 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Registro from '../Registro/registro'
 import Login from '../Login/login'
 import Firebase from '../../../components/Firebase/firebase'
 import { Tabs, Divider } from 'antd'
 import './entrar.scss'
 import { withRouter } from 'react-router-dom'
+import { MenuContext } from '../../../context/carritoContext'
+import { makeStyles } from '@material-ui/styles'
 
 const { TabPane } = Tabs;
 
 function Entrar(props) {
     const token = localStorage.getItem('token')
+    const { colores } = useContext(MenuContext);
 
     useEffect( () => {
         if(token){
@@ -17,9 +20,16 @@ function Entrar(props) {
         }
     })
 
+    const useStyles = makeStyles({
+		text: {
+			color: colores.bodyPage.text
+		}
+	});
+	const classes = useStyles();
+
     return(
         <div>
-            <p className="font-descrip text-center mb-4 mt-4">
+            <p className={"font-descrip text-center mb-4 mt-4 " + classes.text}>
                 Si aun no tienes cuenta regístrate dando click en <strong>Crear cuenta</strong>
             </p>
             <div className="tabs">

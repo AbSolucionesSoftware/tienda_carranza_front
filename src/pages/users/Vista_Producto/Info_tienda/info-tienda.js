@@ -34,7 +34,7 @@ const InfoTienda = (props) => {
 	return (
 		<Spin spinning={loading}>
 			<div className="contenedor-info-tienda">
-				<p className="titulos-vista-productos text-center font-secun">Encuentra nuestra tienda</p>
+				<p className="titulos-vista-productos text-center font-secun">Encuentra nuestro restaurante</p>
 				<div className="text-center">
 					<div className="contenedor-imagen-info">
 						<div className="contenedor-imagen-info-tienda">

@@ -5,7 +5,7 @@
 }
 .ant-layout-header{
   padding: 0;
-  background-color: white;
+  // background-color: white;
 }
 .contenedor-logo{
   margin-left: 20%;
@@ -56,13 +56,10 @@
 }
 
 .a00{
-  height: 10px;
-}
-.a01{
-  height: 50px;
+  height: 5px;
 }
 .a0{
-  height: 90px;
+  height: 100px;
   font-weight: bold;
 }
 
@@ -82,7 +79,7 @@
 }
 //el a4 separa arriba del input
 .a4{
-  height: 25px;
+  height: 30px;
 }
 .a5{
   height: 100%;
@@ -125,24 +122,43 @@
     width: 89%;
   }
 }
+.contenedor-logo-draw{
+  height: 100px;
+  width: 225px;
+  display: flex;
+}
 
 .input-search{
-  width: 60%;
-  height: 35px;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
+  margin-left: 15px;
+  width: 83%;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  height: 40px;
  
 }
 .boton-search{
-  height: 35px;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  height: 40px;
+}
+.boton-cate-input{
+  height: 40px;
 }
 .containe-categorias{
   padding: 0px!important;
   display: flex;
-  text-align: center;
   justify-content: center;
-  align-items: center;
+  justify-self: center;
   justify-items: center;
+  align-content: center;
+  align-self: center;
+  text-align: center;
+  align-items: center;
 }
+// .container-pages{
+//   // position: ;
+//   z-index: 50;
+// }
+// .container-prin{
+//   position: relative;
+// }

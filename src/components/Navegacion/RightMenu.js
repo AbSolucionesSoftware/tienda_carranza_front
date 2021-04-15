@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
-import firebase from 'firebase/app';
+import * as firebase from 'firebase/app';
 import './navegacion.scss';
 import 'firebase/auth';
 import 'firebase/firestore';
@@ -25,35 +25,35 @@ function RightMenu(props) {
 	}
 
 	return (
-		<Menu defaultSelectedKeys={[ window.location.pathname ]} className="navbar-menu-general font-foot">
-			<Menu.Item key="/" className="navbar-menu-general nav-font-color">
+		<Menu defaultSelectedKeys={[ window.location.pathname ]} className="navbar-menu-draw font-foot">
+			<Menu.Item key="/" className=" nav-font-color">
 				Inicio<Link to="/" />
 			</Menu.Item>
-			<Menu.Item key="/productos" className="navbar-menu-general nav-font-color">
-				Productos<Link to="/productos" />
+			<Menu.Item key="/productos" className=" nav-font-color">
+				Menu<Link to="/productos" />
 			</Menu.Item>
-			{ofertas ? (
-				<Menu.Item key="/ofertas" className="navbar-menu-general nav-font-color">
+			{ofertas.length ? (
+				<Menu.Item key="/ofertas" className=" nav-font-color">
 					Ofertas<Link to="/ofertas" />
 				</Menu.Item>
 			) : (
 				<Menu.Item className="d-none" />
 			)}
-			<Menu.Item key="/blog" className="navbar-menu-general nav-font-color">
+			<Menu.Item key="/blog" className=" nav-font-color">
 				Blog<Link to="/blog" />
 			</Menu.Item>
-			{tienda.length === 0 ? (
+			{/* {tienda.length === 0 ? (
 				<Menu.Item className="d-none" />
 			) : (
-				<Menu.Item key="/quienes_somos" className="navbar-menu-general nav-font-color">
+				<Menu.Item key="/quienes_somos" className=" nav-font-color">
 					Quiénes somos<Link to="/quienes_somos" />
 				</Menu.Item>
-			)}
+			)} */}
 			{!decoded || decoded.rol === true ? (
 				<Menu.Item className="d-none" />
 			) : (
-				<Menu.Item key="/pedidos" className="navbar-menu-general nav-font-color">
-					Mis pedidos<Link to="/pedidos" />
+				<Menu.Item key="/pedidos" className=" nav-font-color">
+					Mis ordenes<Link to="/pedidos" />
 				</Menu.Item>
 			)}
 			{token && decoded['rol'] === false ? (
@@ -67,7 +67,10 @@ function RightMenu(props) {
 						) : decoded.imagenFireBase ? (
 							<Avatar size="large" src={decoded.imagenFireBase} />
 						) : (
-							<Avatar size="large" src={aws + decoded.imagen} />
+							<Avatar
+								size="large"
+								src={aws+decoded.imagen}
+							/>
 						)
 					}
 				>
@@ -98,7 +101,10 @@ function RightMenu(props) {
 								<p>{decoded.nombre.charAt(0)}</p>
 							</Avatar>
 						) : (
-							<Avatar size="large" src={aws + decoded.imagen}>
+							<Avatar
+								size="large"
+								src={aws+decoded.imagen}
+							>
 								{/* <p>{decoded.nombre.charAt(0)}</p> */}
 							</Avatar>
 						)
@@ -127,7 +133,7 @@ function RightMenu(props) {
 			)}
 
 			{token === '' || token === null ? (
-				<Menu.Item className="navbar-menu-general nav-font-color">
+				<Menu.Item className=" nav-font-color">
 					Entrar<Link to="/entrar" />
 				</Menu.Item>
 			) : (

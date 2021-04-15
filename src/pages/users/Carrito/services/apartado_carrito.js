@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import clienteAxios from '../../../../config/axios';
-import { Divider, notification, Modal, Select, Alert, Avatar, List } from 'antd';
+import { notification, Modal, Select, Avatar, List, Button } from 'antd';
 /* import { ShoppingCartOutlined, TagsOutlined, BellOutlined, WhatsAppOutlined } from '@ant-design/icons'; */
 import aws from '../../../../config/aws';
 import { formatoMexico } from '../../../../config/reuserFunction';
-import DatosCliente from '../../Vista_Producto/subs/datos_cliente';
-
+/* import DatosCliente from '../../Vista_Producto/subs/datos_cliente';
+ */
 const { Option } = Select;
 
 export default function ApartadoCarrito(props) {
@@ -14,7 +14,7 @@ export default function ApartadoCarrito(props) {
 	const [ producto, setProducto ] = useState([]);
 	const [ apartadoMultiple, setApartadoMultiple ] = useState([]);
 	const [ total, setTotal ] = useState(0);
-	const [ tipoEnvio, setTipoEnvio ] = useState('');
+	const [ tipoEnvio, setTipoEnvio ] = useState('REGOGIDO');
 
 	const error = (err) => {
 		if (err.response) {
@@ -34,7 +34,7 @@ export default function ApartadoCarrito(props) {
 
 	const obtenerCarrito = async () => {
 		await clienteAxios
-			.get(`/carrito/${cliente}`, {
+			.get(`/carrito/${cliente._id}`, {
 				headers: {
 					Authorization: `bearer ${token}`
 				}
@@ -45,7 +45,7 @@ export default function ApartadoCarrito(props) {
 				const nuevo = res.data.articulos.map((res) => {
 					if (res.idarticulo.activo === false) {
 						return [];
-					}else if (res.idarticulo.eliminado && res.idarticulo.eliminado === true) {
+					} else if (res.idarticulo.eliminado && res.idarticulo.eliminado === true) {
 						return [];
 					} else {
 						return res;
@@ -139,46 +139,46 @@ export default function ApartadoCarrito(props) {
 
 	const apartarCarrito = async () => {
 		await clienteAxios
-		.post(
-			'/apartado/multiple',
-			{
-				cliente: cliente,
-				apartadoMultiple: apartadoMultiple,
-                total: total,
-                estado: 'PROCESANDO',
-				tipoEntrega: tipoEnvio
-			},
-			{
-				headers: {
-					Authorization: `bearer ${token}`
+			.post(
+				'/apartado/multiple',
+				{
+					cliente: cliente._id,
+					apartadoMultiple: apartadoMultiple,
+					total: total,
+					estado: 'PROCESANDO',
+					tipoEntrega: tipoEnvio
+				},
+				{
+					headers: {
+						Authorization: `bearer ${token}`
+					}
 				}
-			}
-		)
-		.then((res) => {
-            notification.success({
-                message: '¡Listo!',
-                description: res.data.message,
-                duration: 2
-            })
-            setTimeout(() => {
-                window.location.href = '/pedidos';
-            }, 1000);
-		})
-		.catch((res) => {
-			if (res.response.status === 404 || res.response.status === 500) {
-				return notification.error({
-					message: 'Error',
-					description: res.response.data.message,
+			)
+			.then((res) => {
+				notification.success({
+					message: '¡Listo!',
+					description: res.data.message,
 					duration: 2
 				});
-			} else {
-				return notification.error({
-					message: 'Error',
-					description: 'Hubo un error',
-					duration: 2
-				});
-			}
-        });
+				setTimeout(() => {
+					window.location.href = '/pedidos';
+				}, 1000);
+			})
+			.catch((res) => {
+				if (res.response.status === 404 || res.response.status === 500) {
+					return notification.error({
+						message: 'Error',
+						description: res.response.data.message,
+						duration: 2
+					});
+				} else {
+					return notification.error({
+						message: 'Error',
+						description: 'Hubo un error',
+						duration: 2
+					});
+				}
+			});
 	};
 
 	const handleCancel = (e) => {
@@ -245,36 +245,32 @@ export default function ApartadoCarrito(props) {
 	return (
 		<Modal
 			style={{ top: 20 }}
-			title="Apartar carrito"
+			title="Ordenar para retirar en restaurant"
 			visible={visible}
 			onCancel={handleCancel}
 			footer={null}
 			width={700}
 		>
 			<List>{articulos}</List>
+			<div className="d-flex">
+				<h6 className="mr-2">Ordenado por:</h6>
+				<p>
+					<b>{cliente.nombre}</b>
+				</p>
+			</div>
 			<div className="d-flex justify-content-end mt-3 border-bottom">
 				<h4>Total: ${formatoMexico(total)}</h4>
 			</div>
-			<div className="row mt-4">
-				<div className="col-lg-6 text-center">
-					<h6 className="font-weight-bold">Elegir tipo de envío: </h6>
-					<div>
-						<Select style={{ width: 200 }} placeholder="Selecciona un tipo" onChange={obtenerTipoEnvio}>
-							<Option value="ENVIO">Envío por paquetería</Option>
-							<Option value="REGOGIDO">Recoger a sucursal</Option>
-						</Select>
-					</div>
-				</div>
-				<div className="col-lg-6">
-					<Alert description="Para apartar un producto completa tus datos." type="info" showIcon />
-				</div>
+			<div className="d-flex justify-content-end align-items-center mt-1">
+				<Button
+					className="color-boton color-font-boton"
+					size="large"
+					style={{ width: 170 }}
+					onClick={() => handleOk()}
+				>
+					Ordenar
+				</Button>
 			</div>
-			<Divider>Tus datos</Divider>
-			{cliente ? (
-				<DatosCliente token={token} clienteID={cliente} tipoEnvio={tipoEnvio} enviarDatos={[ handleOk ]} />
-			) : (
-				<div />
-			)}
 		</Modal>
 	);
 }

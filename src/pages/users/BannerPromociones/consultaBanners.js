@@ -4,7 +4,7 @@ import {withRouter } from 'react-router-dom';
 import { MenuContext } from '../../../context/carritoContext';
 import Banner_Promocionales from './bannerPromocionales';
 
-function Consulta_Banners() {
+function Consulta_Banners(props) {
 	const { datosContx } = useContext(MenuContext);
 
     return (

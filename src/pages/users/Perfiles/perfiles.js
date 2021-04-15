@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import jwt_decode from 'jwt-decode';
 import clienteAxios from '../../../config/axios';
 import { notification } from 'antd';
 import ActualizarUsuario from './service/ActualizarUsuario';
 import Spin from '../../../components/Spin';
+import { makeStyles } from '@material-ui/styles';
+import { MenuContext } from '../../../context/carritoContext';
 
 export default function Perfiles(props) {
 	const [ datosUser, setDatosUser ] = useState(null);
 	const [ loading, setLoading ] = useState(false);
 	const [ accion, setAccion ] = useState(false);
+	const { colores } = useContext(MenuContext);
 
 	//Obtener token de localStorage
 	const token = localStorage.getItem('token');
@@ -71,10 +74,17 @@ export default function Perfiles(props) {
 		[ accion ]
 	);
 
+	const useStyles = makeStyles({
+		text: {
+			color: colores.bodyPage.text
+		}
+	});
+	const classes = useStyles();
+
 	return (
 		<Spin spinning={loading}>
 			<div className="container col-lg-6">
-				<h1 className="mt-5 text-center font-prin">Bienvenido a tu perfil</h1>
+				<h1 className={"mt-5 text-center font-prin" + classes.text} >Bienvenido a tu perfil</h1>
 				<div className="mt-3 px-5 mx-auto" style={{ background: 'white', left: '50%' }}>
 					<ActualizarUsuario
 						datosUser={datosUser}

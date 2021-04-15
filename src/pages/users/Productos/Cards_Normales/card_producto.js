@@ -1,10 +1,10 @@
   import React, { useContext } from 'react';
 import aws from '../../../../config/aws';
-import DOMPurify from 'dompurify';
+/* import DOMPurify from 'dompurify'; */
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
 import './card_producto.scss';
-import { formatoMexico, agregarPorcentaje } from '../../../../config/reuserFunction';
+/* import { formatoMexico, agregarPorcentaje } from '../../../../config/reuserFunction'; */
 import { MenuContext } from '../../../../context/carritoContext';
 import { makeStyles } from '@material-ui/styles';
 
@@ -17,27 +17,29 @@ export default function Card_Producto(props) {
 	const useStyles = makeStyles({
 		background: {
 			backgroundColor: colores.bodyPage.card.background,
-			color: colores.bodyPage.card.text,
-			border: 'none'
-		}
+			border: "none",
+			"& .text-color": {
+				color: colores.bodyPage.card.text
+			}
+		},
 	});
 	const classes = useStyles();
 
 	if (productos.precioPromocion) {
 		return (
-			<div key={productos._id} className={"size-col-prin col-lg-2 col-6 " + classes.background}>
+			<div key={productos._id} className="size-col-prin col-lg-2 col-6">
 				<Link to={`/vista_producto/${productos.productoPromocion._id}`}>
-					<Card.Grid style={gridStyle} className="contenedor-card-producto-principal">
+					<Card.Grid hoverable style={gridStyle} className={"contenedor-card-producto-principal " + classes.background}>
 						<Card
-							className="contenedor-card-body"
+							className={"contenedor-card-body " + classes.background}
 							cover={
 								<div className="contenedor-imagen-oferta">
 									<div className="oferta-frente">
 										<h5 className="shadow">OFERTA</h5>
 									</div>
-									<div className="contenedor-imagen-producto-principal">
+									<div className="contenedor-imagen-principal">
 										<img
-											className="imagen-producto-principal"
+											className="imagen-principal"
 											alt="producto"
 											src={aws + productos.productoPromocion.imagen}
 										/>
@@ -46,15 +48,15 @@ export default function Card_Producto(props) {
 							}
 						>
 							<div className="contenedor-titulos-productos titulo-elipsis">
-								<p className="font-secun titulo-producto">{productos.productoPromocion.nombre}</p>
-								<div
+								<p className=" titulo-producto text-color">{productos.productoPromocion.nombre}</p>
+								{/* <div
 									className="font-peque description"
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.productoPromocion.descripcion)
 									}}
-								/>
+								/> */}
 							</div>
-							<div className="contenedor-precios-productos">
+							{/* <div className="contenedor-precios-productos">
 								<h2 className="font-peque precio-producto rebajado mr-2">
 									${formatoMexico(productos.productoPromocion.precio)}
 								</h2>
@@ -67,7 +69,7 @@ export default function Card_Producto(props) {
 										productos.productoPromocion.precio
 									)}%OFF
 								</p>
-							</div>
+							</div>  */}
 						</Card>
 					</Card.Grid>
 				</Link>
@@ -75,9 +77,9 @@ export default function Card_Producto(props) {
 		);
 	} else {
 		return (
-			<div key={productos._id} className={"size-col-prin col-lg-2 col-6 centrar" + classes.background}>
+			<div key={productos._id} className="size-col-prin col-lg-2 col-6 centrar">
 				<Link to={`/vista_producto/${productos._id}`}>
-					<Card.Grid hoverable style={gridStyle} className="contenedor-card-producto-principal">
+					<Card.Grid hoverable style={gridStyle} className={"contenedor-card-producto-principal " + classes.background}>
 						<Card
 							className={"contenedor-card-body " + classes.background}
 							cover={
@@ -95,9 +97,9 @@ export default function Card_Producto(props) {
 										<div className="d-none" />
 									)}
 
-									<div className="contenedor-imagen-producto-principal">
+									<div className="contenedor-imagen-principal">
 										<img
-											className="imagen-producto-principal"
+											className="imagen-principal"
 											alt="producto"
 											src={aws + productos.imagen}
 										/>
@@ -105,27 +107,27 @@ export default function Card_Producto(props) {
 								</div>
 							}
 						>
-							<div className=" contenedor-titulos-productos titulo-elipsis">
-								<p className="font-secun titulo-producto">{productos.nombre}</p>
-								<div
+							<div className="contenedor-titulos-productos titulo-elipsis">
+								<p className="titulo-producto text-color">{productos.nombre}</p>
+								{/* <div
 									className="font-peque description "
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.descripcion)
 									}}
-								/>
+								/> */}
 							</div>
-							{!productos.promocion.length ? (
+							{/* {!productos.promocion.length ? (
 								<div className="contenedor-precios-productos">
-									<h3 className={"font-prin precio-rebaja " + classes.background}>${formatoMexico(productos.precio)}</h3>
+									<h3 className="precio-prin precio-rebaja ">${formatoMexico(productos.precio)}</h3>
 								</div>
 							) : (
 								productos.promocion.map((promo) => {
 									return (
 										<div className="contenedor-precios-productos" key={promo._id}>
-											<h2 className={"font-peque precio-producto  mr-2 " + classes.background}>
+											<h2 className="font-peque precio-producto mr-2">
 												${formatoMexico(productos.precio)}
 											</h2>
-											<h3 className={"font-prin precio-rebaja d-inline mr-1 " + classes.background}>
+											<h3 className="font-prin precio-rebaja d-inline mr-1">
 												${formatoMexico(promo.precioPromocion)}
 											</h3>
 											<p className="font-peque porcentaje-descuento d-inline">
@@ -134,7 +136,7 @@ export default function Card_Producto(props) {
 										</div>
 									);
 								})
-							)}
+							)} */}
 						</Card>
 					</Card.Grid>
 				</Link>

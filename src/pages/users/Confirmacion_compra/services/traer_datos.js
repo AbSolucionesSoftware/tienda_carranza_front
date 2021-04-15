@@ -91,8 +91,6 @@ export default function Traer_datos(props) {
 		envios();
 	}, [])
 
-	console.log(envioTotal);
-
 	function enviarDatosUser() { 
 
 		const formData = new FormData();
@@ -110,7 +108,7 @@ export default function Traer_datos(props) {
 		formData.append('pais', datosFormulario.pais);
 
 		setLoading(true);
-		if (envioTotal.todos === true || envioTotal === false) {
+		// if (envioTotal.todos === true || envioTotal === false) {
 			clienteAxios
 			.put(`/cliente/${decoded._id}`, formData, {
 				headers: {
@@ -148,66 +146,66 @@ export default function Traer_datos(props) {
 				}
 
 			});
-		}else{
-			consultaCodigos
-			.get(`/info_cp/${datosFormulario.cp}`)
-			.then((res) => {
-			const data = res.data[0].response.municipio;
-				clienteAxios
-					.get(`/politicasEnvio/estado/municipio/${data}`)
-					.then((res) => {
-						clienteAxios
-						.put(`/cliente/${decoded._id}`, formData, {
-							headers: {
-								'Content-Type': 'multipart/form-data',
-								Authorization: `bearer ${token}`
-							}
-						})
-						.then((res) => {
-							setDatosActualizados(datosFormulario);
-							setLoading(false);
-							setCurrent(current + 1);
-						})
-						.catch((error) => {
-							setLoading(false);
-							if(error.response){
-								if (error.response.status === 404 || error.response.status === 500) {
-									notification.error({
-										message: 'Error',
-										description: `${error.response.data.message}`,
-										duration: 2
-									});
-								} else {
-									notification.error({
-										message: 'Error',
-										description: 'Error de conexion',
-										duration: 2
-									});
-								}
-							}else{
-								notification.error({
-									message: 'Error de conexion.',
-									description:
-									'Al parecer no se a podido conectar al servidor.',
-								});
-							}
+		// }else{
+		// 	consultaCodigos
+		// 	.get(`/info_cp/${datosFormulario.cp}`)
+		// 	.then((res) => {
+		// 	const data = res.data[0].response.municipio;
+		// 		clienteAxios
+		// 			.get(`/politicasEnvio/estado/municipio/${data}`)
+		// 			.then((res) => {
+		// 				clienteAxios
+		// 				.put(`/cliente/${decoded._id}`, formData, {
+		// 					headers: {
+		// 						'Content-Type': 'multipart/form-data',
+		// 						Authorization: `bearer ${token}`
+		// 					}
+		// 				})
+		// 				.then((res) => {
+		// 					setDatosActualizados(datosFormulario);
+		// 					setLoading(false);
+		// 					setCurrent(current + 1);
+		// 				})
+		// 				.catch((error) => {
+		// 					setLoading(false);
+		// 					if(error.response){
+		// 						if (error.response.status === 404 || error.response.status === 500) {
+		// 							notification.error({
+		// 								message: 'Error',
+		// 								description: `${error.response.data.message}`,
+		// 								duration: 2
+		// 							});
+		// 						} else {
+		// 							notification.error({
+		// 								message: 'Error',
+		// 								description: 'Error de conexion',
+		// 								duration: 2
+		// 							});
+		// 						}
+		// 					}else{
+		// 						notification.error({
+		// 							message: 'Error de conexion.',
+		// 							description:
+		// 							'Al parecer no se a podido conectar al servidor.',
+		// 						});
+		// 					}
 
-						});
-					})
-					.catch((err) => {
-						setEnvioRechazado(err.response.data.message);
-						setAlertRechazo(true);
-						setLoading(false);
-					});
-			})
-			.catch((err) => {
-				notification.error({
-				message: 'Error',
-				description: 'El codigo postal insertado no existe'
-				});
-				setLoading(false);
-			});
-		}
+		// 				});
+		// 			})
+		// 			.catch((err) => {
+		// 				setEnvioRechazado(err.response.data.message);
+		// 				setAlertRechazo(true);
+		// 				setLoading(false);
+		// 			});
+		// 	})
+		// 	.catch((err) => {
+		// 		notification.error({
+		// 		message: 'Error',
+		// 		description: 'El codigo postal insertado no existe'
+		// 		});
+		// 		setLoading(false);
+		// 	});
+		// }
 	}
 
 

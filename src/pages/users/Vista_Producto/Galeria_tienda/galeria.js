@@ -101,9 +101,9 @@ function Galeria(props) {
 			isFluidWidth: true
 		},
 		largeImage: {
-			src: aws+imagenZoom,
-			width: zoomWidth*1.6,
-			height: zoomHeight*1.6
+			// src: aws+imagenZoom,
+			// width: zoomWidth*1.6,
+			// height: zoomHeight*1.6
 		},
 		enlargedImagePortalId: 'zoom-render'
 	}
@@ -111,10 +111,10 @@ function Galeria(props) {
 	function myRenderItem() {
 		return (
 			<ReactImageMagnify
-				imageClassName="image-gallery-image"
-				enlargedImageContainerClassName="image-gallery-image-large-container"
-				enlargedImageClassName="image-gallery-image-large"
-				className="imagen-gallery-container"
+				// imageClassName="image-gallery-image"
+				// enlargedImageContainerClassName="image-gallery-image-large-container"
+				// enlargedImageClassName="image-gallery-image-large"
+				// className="imagen-gallery-container"
 				{...propiedadesImageMagnify}
 			/>
 		);

@@ -17,7 +17,6 @@ export default function LayoutBasic(props) {
 	const token = localStorage.getItem('token');
 	var decoded = { _id: '' };
 	const { setDatosContx, setLoading, active, setColores, colores } = useContext(MenuContext);
-
 	if (token !== null) decoded = Jwt(token);
 
 	function Jwt(token) {
@@ -38,6 +37,7 @@ export default function LayoutBasic(props) {
 					}
 				})
 				.then((res) => {
+					console.log(res);
 					const datos = res.data;
 					setDatosContx(datos);
 					setLoading(false);
@@ -62,6 +62,10 @@ export default function LayoutBasic(props) {
 									text: colores.bodyPage.card.text,
 									background: colores.bodyPage.card.background,
 								}
+							},
+							footer: {
+								text: !colores.footer.text,
+								background: colores.footer.background
 							}
 						});
 					}

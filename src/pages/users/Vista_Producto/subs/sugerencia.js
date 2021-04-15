@@ -253,7 +253,7 @@ const Sugerencia = (props) => {
 	}
 	return (
 		<Spin spinning={loading}>
-			<div>
+			<div >
 				{
 					dataEstados.todos !== true ? (
 						<div>

@@ -2,8 +2,8 @@
 import React from 'react';
 import Carousel from './Carusel_ofertas/carousel';
 /* import ConsultaProductos from './Productos/consulta_productos'; */
-/* import Ofertas from './Ofertas/ofertasHome'; */
-import BannerInformativo from './Datos_tienda/banner_informativo'
+/* import Ofertas from './Ofertas/ofertasHome';
+import BannerInformativo from './Datos_tienda/banner_informativo' */
 import Consulta_Banners from './BannerPromociones/consultaBanners';
 /* import Banner_Promocionales from './BannerPromociones/bannerPromocionales';
 import Datos_tienda from './Datos_tienda/datos_tienda';
@@ -41,7 +41,7 @@ export default function Home(props) {
 			{/* <OfertasIzquierda /> */}
 			{/* <OfertasDerecha /> */}
 			{/* <OfertasCentro /> */}
-			<BannerInformativo />
+			{/* <BannerInformativo /> */}
 			
 		</div>
 	);

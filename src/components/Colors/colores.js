@@ -49,6 +49,10 @@ export default function ColorCustomizer() {
 				background: colores.bodyPage.card.background
 			}
 		};
+		let footer = {
+			text: colores.footer.text,
+			background: colores.footer.background
+		};
 		/* Definimos el componente seleccionado y aplicamos colores en cada caso */
 		switch (component) {
 			/* NAVBAR PRINCIPAL */
@@ -151,11 +155,24 @@ export default function ColorCustomizer() {
 					}
 				};
 				break;
+			case 'footerText':
+				footer = {
+					text: color.hex,
+					background: colores.footer.background
+				};
+				break;
+			case 'footerBackground':
+				footer = {
+					text: colores.footer.text,
+					background: color.hex
+				};
+				break;
 		}
 		setColores({
 			navPrimary,
 			navSecondary,
-			bodyPage
+			bodyPage,
+			footer
 		});
 	};
 	const handleChangeComponent = (e) => {
@@ -197,6 +214,12 @@ export default function ColorCustomizer() {
 			case 'cardText':
 				setColorPicker(colores.bodyPage.card.text);
 				break;
+			case 'footerText':
+				setColorPicker(colores.footer.text);
+				break;
+			case 'footerBackground':
+				setColorPicker(colores.footer.background);
+				break;
 		}
 	};
 
@@ -205,12 +228,12 @@ export default function ColorCustomizer() {
 			navPrimary: {
 				text: '#000000',
 				background: '#FFFFFF',
-				hoverText: '#a39c9c'
+				hoverText: '#e28000'
 			},
 			navSecondary: {
 				text: '#000000',
 				background: '#000000',
-				hoverText: '#a39c9c'
+				hoverText: '#ffc340'
 			},
 			bodyPage: {
 				text: '#000000',
@@ -218,8 +241,12 @@ export default function ColorCustomizer() {
 				hoverText: '#000000',
 				card: {
 					text: '#000000',
-					background: '#F7F7F7'
+					background: '#ffffff'
 				}
+			},
+			footer: {
+				text: '#ffffff',
+				background: '#3D3D3D'
 			}
 		});
 	};
@@ -241,8 +268,12 @@ export default function ColorCustomizer() {
 				handleVisibleChange();
 			})
 			.catch((res) => {
-				console.log(res);
+				console.log(res.response);
 				setLoading(false);
+				notification.error({
+					message: 'Hubo un error',
+					duration: 2
+				});
 			});
 	};
 
@@ -287,8 +318,8 @@ export default function ColorCustomizer() {
 						</Radio>
 					</Radio.Group>
 				</div>
-				<div className="col-md-3">
-					<h6>Búsqueda</h6>
+				{/* <div className="col-md-2">
+					<h6>Categorias</h6>
 					<Radio.Group onChange={handleChangeComponent} value={component}>
 						<Radio style={styles.radio_style} value="navSecBackground">
 							Color fondo
@@ -300,7 +331,7 @@ export default function ColorCustomizer() {
 							Color activo
 						</Radio>
 					</Radio.Group>
-				</div>
+				</div> */}
 				<div className="col-md-3">
 					<h6>Fondo</h6>
 					<Radio.Group onChange={handleChangeComponent} value={component}>
@@ -322,6 +353,17 @@ export default function ColorCustomizer() {
 							Color fondo
 						</Radio>
 						<Radio style={styles.radio_style} value="cardText">
+							Color texto
+						</Radio>
+					</Radio.Group>
+				</div>
+				<div className="col-md-3">
+					<h6>Footer</h6>
+					<Radio.Group onChange={handleChangeComponent} value={component}>
+						<Radio style={styles.radio_style} value="footerBackground">
+							Color fondo
+						</Radio>
+						<Radio style={styles.radio_style} value="footerText">
 							Color texto
 						</Radio>
 					</Radio.Group>
