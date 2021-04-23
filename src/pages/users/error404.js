@@ -7,6 +7,7 @@ export default function Error404 () {
         status="404"
         title="404"
         subTitle="Ups, Parece que esta pagina no existe."
+        
       />
     )
 }

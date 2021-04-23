@@ -31,11 +31,8 @@ const Categorias = (props) => {
 		background: {
 			backgroundColor: colores.navPrimary.background,
 			color: colores.navPrimary.text,
-			'& span' : {
-				color: colores.navPrimary.text,
-			},
-			'& span:hover' : {
-				color: colores.navPrimary.hoverText,
+			'& .ant-menu-submenu-title': {
+				color: `${colores.navPrimary.text}!important`,
 			}
 		},
 		hover: {
@@ -43,6 +40,9 @@ const Categorias = (props) => {
 				color: `${colores.navPrimary.hoverText}!important`,
 			},
 			'& > .ant-menu-submenu-title': {
+				color: `${colores.navPrimary.text}!important`,
+			},
+			'& > .ant-menu-submenu-title span': {
 				color: `${colores.navPrimary.text}!important`,
 			}
 		},

@@ -64,7 +64,7 @@ const Navegacion = (props) => {
 		return (
 			<div className="preloading">
 				<div className="contenedor-preloading">
-					<Spin size="large" tip="Cargando Restaurante..." className="spiner" />
+					<Spin size="large" tip="Cargando..." className="spiner" />
 				</div>
 			</div>
 		);
@@ -74,7 +74,7 @@ const Navegacion = (props) => {
 		<div>
 			<Layout className="layout navbar-menu-general a00">
 				<Header className=" a1">
-					<div className="menuCon a2">
+					<div className={"menuCon a2 " + classes.background }>
 						<div className="top-menu row a3 container-prin">
 							<div className={"col-lg-12 container-pages a4 " + classes.background }>
 								<Menu
@@ -128,8 +128,8 @@ const Navegacion = (props) => {
 			{/* DIVISOR PARA EL INPUT  */}
 
 			<Layout className={"layout a0 " + classes.background } >
-				<Header className=" a1">
-					<div className="menuCon  a2">
+				<Header className={" a1 "+ classes.background }>
+					<div className={"menuCon a2 " + classes.background }>
 						<div className={"top-menu row a3 " + classes.background }>
 							<div className="col-lg-2 row-logo-search ">
 								<div className="row row-logo-search-2 ">
@@ -289,7 +289,7 @@ const Navegacion = (props) => {
 						</div>
 						<div className="top-menu-responsive">
 							<Button type="link" className="barsMenu" onClick={showDrawer}>
-								<MenuOutlined className="menu-responsivo-icon" style={{ fontSize: 22 }} />
+								<MenuOutlined className={"menu-responsivo-icon " + classes.background } style={{ fontSize: 22 }} />
 							</Button>
 							<Search
 								className="search-nav-responsive"
@@ -303,7 +303,7 @@ const Navegacion = (props) => {
 									<Badge count={datosContx.carritoCantidad}>
 										<Link to="/shopping_cart">
 											<ShoppingOutlined
-												className="menu-responsivo-icon"
+												className={"menu-responsivo-icon " + classes.background }
 												style={{ fontSize: 28 }}
 											/>
 										</Link>

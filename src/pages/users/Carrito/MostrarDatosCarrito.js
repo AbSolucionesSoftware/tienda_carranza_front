@@ -5,8 +5,9 @@ import { Link, withRouter } from 'react-router-dom';
 import './carrito.scss';
 import { List, Button, message, Result, Space } from 'antd';
 import {  AlertOutlined,HomeOutlined } from '@ant-design/icons';
-import { formatoMexico } from '../../../config/reuserFunction';
+import { formatoMexico, verificarDiasLaborales } from '../../../config/reuserFunction';
 import { CarritoContext } from './context_carrito/context-carrito';
+import { MenuContext } from '../../../context/carritoContext.js';
 import { obtenerStockCarrito } from './services/obtenerStock';
 import { AgregarPedidoCarrito } from './services/pedido_carrito';
 import ApartadoCarrito from './services/apartado_carrito';
@@ -22,7 +23,9 @@ function MostrarDatosProductos(props) {
 	const [ nuevoCarrito, setNuevoCarrito ] = useState([]);
 	const [ total, setTotal ] = useState(0);
 	const { activador, setActivador, validacion } = useContext(CarritoContext);
+	const { datosContx } = useContext(MenuContext);
 	const [ visible, setVisible ] = useState(false);
+	const [ laboral, setLaboral ] = useState(false);
 
 	//toma del token para el usuario
 	const token = localStorage.getItem('token');
@@ -53,6 +56,11 @@ function MostrarDatosProductos(props) {
 				setLoading(false);
 			});
 	}
+
+	useEffect(() => {
+		/* verificar dia No laboral */
+		setLaboral(verificarDiasLaborales(datosContx));
+	}, [datosContx])
 
 	useEffect(
 		() => {
@@ -161,6 +169,7 @@ function MostrarDatosProductos(props) {
 									className="d-flex justify-content-center align-items-center color-boton color-font-boton font-des-car "
 									style={{ width: 250, textAlign: 'center' }}
 									onClick={() => crearPedido()}
+									disabled={laboral}
 								>
 									<AlertOutlined style={styles} /> Ordenar ahora
 								</Button>
@@ -171,6 +180,7 @@ function MostrarDatosProductos(props) {
 									className="d-flex justify-content-center align-items-center color-boton color-font-boton font-des-car"
 									style={{ width: 250, textAlign: 'center' }}
 									onClick={() => apartarCarrito()}
+									disabled={laboral}
 								>
 									<HomeOutlined style={styles} /> Recoger en restaurante
 								</Button>

@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,  useContext } from 'react';
 import clienteAxios from '../../../../config/axios';
 import './info-tienda.scss';
 import Geolocalizacion from '../../../../pages/users/geolocalizacion';
 import { withRouter } from 'react-router-dom';
 import aws from '../../../../config/aws';
 import Spin from '../../../../components/Spin';
+import { MenuContext } from '../../../../context/carritoContext';
 
 const InfoTienda = (props) => {
 	const [ loading, setLoading ] = useState(false);
 	const [ tienda, setTienda ] = useState([]);
+	const { datosContx, colores } = useContext(MenuContext);
 
 	useEffect(() => {
 		obtenerTienda();
@@ -69,16 +71,35 @@ const InfoTienda = (props) => {
 				) : (
 					<p />
 				)}
-				{tienda.diasHorariosEmpresas !== '' && tienda.diasHorariosEmpresas !== "undefined" ? (
-					<div className="container">
-						<p className="font-descrip">
-							<span className="font-weight-bold">Horarios de Atención:</span>
-							<p dangerouslySetInnerHTML={{__html: tienda.diasHorariosEmpresas}}/>
-						</p>
-					</div>
-				) : (
-					<p />
-				)}
+				{datosContx.tienda?.length > 0 && datosContx.tienda[0].horario.length > 0 ? (
+							<div className="mt-4">
+								<div className="container">
+									<p className="font-foot text-color">
+										<span className="font-weight-bold">Horarios de Atención:</span>
+									</p>
+									{datosContx.tienda[0].horario.map((horario) => {
+										if(horario.close){
+											return (
+												<div>
+													<p className="h6">
+														<b>{horario.dia}: </b> {horario.horarioInicial} -{' '}
+														{horario.horarioFinal}
+													</p>
+												</div>
+											);
+										}else{
+											return (
+												<div>
+													<p className="h6">
+														<b>{horario.dia}: NO HAY SERVICIO </b>
+													</p>
+												</div>
+											);
+										}
+									})}
+								</div>
+							</div>
+						) : null}
 
 				{/* {tienda.length !== 0 ? (
 					tienda.ubicacion.map((ubicacion) => {

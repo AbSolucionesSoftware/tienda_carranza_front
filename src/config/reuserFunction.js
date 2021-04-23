@@ -1,6 +1,19 @@
 /* import { parse } from "dotenv/types";
  */
+export const verificarDiasLaborales = (datosContx) => {
+	const numero_dia = new Date().getDay();
 
+	if(datosContx.tienda?.length > 0){
+		const dia_no_laboral = datosContx.tienda[0].horario.filter(hora => hora.close === false && hora.key === numero_dia);
+		if(dia_no_laboral.length > 0){
+			return true
+		}else{
+			return false
+		}
+	}else{
+		return false
+	}
+}
 
 export const formatoMexico = (number) => {
 	if (!number) {

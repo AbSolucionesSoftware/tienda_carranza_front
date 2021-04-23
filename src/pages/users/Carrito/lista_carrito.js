@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './carrito.scss';
 import { List, InputNumber, Button, Select, Form, Tag, Modal } from 'antd';
 import { ShoppingCartOutlined, HomeOutlined,AlertOutlined, ExportOutlined, DeleteOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
-import { formatoMexico, agregarPorcentaje } from '../../../config/reuserFunction';
+import { formatoMexico, agregarPorcentaje, verificarDiasLaborales } from '../../../config/reuserFunction';
 import { CarritoContext } from './context_carrito/context-carrito';
 import { MenuContext } from '../../../context/carritoContext';
 import { actualizarCantidad } from './services/consultasCarrito';
@@ -26,10 +26,17 @@ function ListaCarrito(props) {
 	const [ medidaDisponible, setMedidaDisponible ] = useState('');
 	const [ validateStatus, setValidateStatus ] = useState('validating');
 	const { activador, setActivador, setValidacion } = useContext(CarritoContext);
+	const { datosContx } = useContext(MenuContext);
 	const { active, setActive } = useContext(MenuContext);
 	const [ visible, setVisible ] = useState(false);
 	const [ precio, setPrecio ] = useState(0);
 	const [ eliminado, setEliminado ] = useState(false);
+	const [ laboral, setLaboral ] = useState(false);
+
+	useEffect(() => {
+		/* verificar dia No laboral */
+		setLaboral(verificarDiasLaborales(datosContx));
+	}, [datosContx])
 
 	useEffect(
 		() => {
@@ -346,7 +353,7 @@ function ListaCarrito(props) {
 								type="link"
 								className="d-flex justify-content-center align-items-center color-fonts font-des-car "
 								onClick={() => comprar()}
-								disabled={medidaDisponible !== '' ? true : false}
+								disabled={medidaDisponible !== '' || laboral ? true : false}
 							>
 								<AlertOutlined style={styles} />Ordenar individual
 							</Button>
@@ -365,7 +372,7 @@ function ListaCarrito(props) {
 								type="link"
 								className="d-flex justify-content-center align-items-center color-fonts font-des-car"
 								onClick={() => apartado()}
-								disabled={medidaDisponible !== '' ? true : false}
+								disabled={medidaDisponible !== '' || laboral ? true : false}
 							>
 								<HomeOutlined style={styles} />Recoger individual
 							</Button>

@@ -8,7 +8,7 @@ import {
   notification,
   Alert,
   Steps,
-  message,
+  /* message, */
   Spin,
 } from "antd";
 import {
@@ -22,14 +22,15 @@ import PoliticasEnvio from "./politicas_envio";
 import Registro_Politicas from "./registroPoliticas";
 import Cobertura_envio from "./cobertura_envios";
 import aws from "../../../../../config/aws";
+import HorariosAdmin from "./horarios";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function RegistroTienda(props) {
-  const { drawnerClose } = props;
+ /*  const { drawnerClose } = props; */
   const [current, setCurrent] = props.steps;
 
-  const {setDatosNegocio, datosNegocio, token, } = props;
+  const {/* setDatosNegocio,  */datosNegocio, token, reloadInfo, setReloadInfo } = props;
 
   const [datos, setDatos] = useState({});
   const [control, setControl] = useState(false);
@@ -53,9 +54,9 @@ export default function RegistroTienda(props) {
 
   };
 
-  const prev = () => {
+  /* const prev = () => {
     setCurrent(current - 1);
-  };
+  }; */
 
   useEffect(() => {
     if (datosNegocio !== undefined) {
@@ -86,7 +87,7 @@ export default function RegistroTienda(props) {
         // lat: datosNegocio.ubicacion[0].lat,
         // lng: datosNegocio.ubicacion[0].lng,
         imagenCorp: datosNegocio.imagenCorp,
-        diasHorariosEmpresas: datosNegocio.diasHorariosEmpresas,
+        /* diasHorariosEmpresas: datosNegocio.diasHorariosEmpresas, */
         linkFace: datosNegocio.linkFace,
         linkInsta: datosNegocio.linkInsta,
         linkTweeter: datosNegocio.linkTweeter,
@@ -102,7 +103,7 @@ export default function RegistroTienda(props) {
         // lat: datosNegocio.ubicacion[0].lat,
         // lng: datosNegocio.ubicacion[0].lng,
         imagenCorp: datosNegocio.imagenCorp,
-        diasHorariosEmpresas: datosNegocio.diasHorariosEmpresas,
+        /* diasHorariosEmpresas: datosNegocio.diasHorariosEmpresas, */
         linkFace: datosNegocio.linkFace,
         linkInsta: datosNegocio.linkInsta,
         linkTweeter: datosNegocio.linkTweeter,
@@ -123,9 +124,9 @@ export default function RegistroTienda(props) {
     setDatos({ ...datos, imagenCorp: content });
   };
 
-  const capturarHorariosDias = (content, editor) => {
+  /* const capturarHorariosDias = (content, editor) => {
     setDatos({ ...datos, diasHorariosEmpresas: content });
-  };
+  }; */
 
   // console.log(capturarHorariosDias);
   // console.log(datosNegocio.diasHorariosEmpresas);
@@ -149,7 +150,7 @@ export default function RegistroTienda(props) {
     },
   };
 
-  const onError = (error) => {
+  /* const onError = (error) => {
     error.errorFields.map((err) => {
       notification.error({
         message: `[${err.name}]`,
@@ -157,7 +158,7 @@ export default function RegistroTienda(props) {
         duration: 5,
       });
     });
-  };
+  }; */
 
   const SendForm = async () => {
     const formData = new FormData();
@@ -172,7 +173,7 @@ export default function RegistroTienda(props) {
     // formData.append("lng", datos.lng);
     // formData.append("politicas", datos.politicas);
     formData.append("imagenCorp", datos.imagenCorp);
-    formData.append("diasHorariosEmpresas", datos.diasHorariosEmpresas);
+    /* formData.append("diasHorariosEmpresas", datos.diasHorariosEmpresas); */
     formData.append("linkFace", datos.linkFace);
     formData.append("linkInsta", datos.linkInsta);
     formData.append("linkTweeter", datos.linkTweeter);
@@ -201,6 +202,7 @@ export default function RegistroTienda(props) {
           .then((res) => {
             setLoading(false);
             setCurrent(current + 1);
+            setReloadInfo(!reloadInfo)
             next();
             notification.success({
               message: "Registro exitoso",
@@ -573,34 +575,6 @@ export default function RegistroTienda(props) {
                   </Form.Item>
                 </div>
               </div>
-
-              <div className="row">
-                <Divider>Horarios y Días Laborales</Divider>
-                <div className="col-12">
-                  <Form.Item className="m-2">
-                    <Form.Item
-                      name="diasHorariosEmpresas"
-                    >
-                      <Editor
-                        disabled={false}
-                        init={{
-                          height: 250,
-                          menubar: true,
-                          plugins: [
-                            "advlist autolink lists link image charmap print preview anchor",
-                            "searchreplace visualblocks code fullscreen",
-                            "insertdatetime media table paste code help wordcount",
-                          ],
-                          toolbar:
-                            "undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help",
-                        }}
-                        onEditorChange={capturarHorariosDias}
-                      />
-                    </Form.Item>
-                  </Form.Item>
-                </div>
-              </div>
-              
               <div className="row">
                 <Divider>Imagen corporativa</Divider>
                 <div className="col-12">
@@ -652,6 +626,14 @@ export default function RegistroTienda(props) {
               </Form.Item>
             </Form>
           </Spin>
+        </div>
+      ),
+    },
+    {
+      title: "Horarios",
+      content: (
+        <div>
+          <HorariosAdmin datosNegocio={datosNegocio} reloadInfo={reloadInfo} setReloadInfo={setReloadInfo} setCurrent={setCurrent} current={current} />
         </div>
       ),
     },

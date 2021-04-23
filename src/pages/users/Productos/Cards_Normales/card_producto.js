@@ -47,7 +47,7 @@ export default function Card_Producto(props) {
 								</div>
 							}
 						>
-							<div className="contenedor-titulos-productos titulo-elipsis">
+							<div className="contenedor-titulos-productos">
 								<p className=" titulo-producto text-color">{productos.productoPromocion.nombre}</p>
 								{/* <div
 									className="font-peque description"
@@ -107,7 +107,7 @@ export default function Card_Producto(props) {
 								</div>
 							}
 						>
-							<div className="contenedor-titulos-productos titulo-elipsis">
+							<div className="contenedor-titulos-productos">
 								<p className="titulo-producto text-color">{productos.nombre}</p>
 								{/* <div
 									className="font-peque description "

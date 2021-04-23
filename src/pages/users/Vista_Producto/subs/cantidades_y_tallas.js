@@ -3,7 +3,7 @@ import { InputNumber, Button, Form, Badge, Divider, notification, Modal, Select,
 import { AlertOutlined, CoffeeOutlined, HomeOutlined, WhatsAppOutlined } from '@ant-design/icons';
 import jwt_decode from 'jwt-decode';
 import { AgregarCarrito, AgregarApartado, AgregarPedido } from './services';
-import { formatoMexico } from '../../../../config/reuserFunction';
+import { formatoMexico, verificarDiasLaborales } from '../../../../config/reuserFunction';
 import { withRouter } from 'react-router-dom';
 import { MenuContext } from '../../../../context/carritoContext';
 /* import DatosCliente from './datos_cliente'; */
@@ -24,7 +24,7 @@ const formItemLayout = {
 const { Option } = Select;
 
 function TallasCantidades(props) {
-	const { active, setActive } = useContext(MenuContext);
+	const { active, setActive, datosContx } = useContext(MenuContext);
 	const productos = props.producto;
 	const [ categoria, setCategoria ] = useState();
 	/* 	const [ cantidad, setCantidad ] = useState(); */
@@ -40,6 +40,7 @@ function TallasCantidades(props) {
 	const [ disabled, setDisabled ] = useState(false);
 	/* 	const [ datosUser, setDatosUser ] = useState([]); */
 	const [ tienda, setTienda ] = useState([]);
+	const [ laboral, setLaboral ] = useState(false);
 
 	const token = localStorage.getItem('token');
 	var decoded = Jwt(token);
@@ -82,6 +83,11 @@ function TallasCantidades(props) {
 			})
 			.catch((err) => {});
 	} */
+
+	useEffect(() => {
+		/* verificar dia No laboral */
+		setLaboral(verificarDiasLaborales(datosContx));
+	}, [datosContx])
 
 	useEffect(() => {
 		if (token) {
@@ -500,7 +506,7 @@ function TallasCantidades(props) {
 									//type="primary"
 									size="large"
 									onClick={() => Pedido()}
-									disabled={disabled}
+									disabled={disabled || laboral}
 								>
 									<CoffeeOutlined  style={{ fontSize: 20 }} />
 									Ordenar ahora
@@ -511,7 +517,7 @@ function TallasCantidades(props) {
 								className="mt-3 d-flex justify-content-center align-items-center size-button-vista color-boton-sec font-boton-vista"
 								size="large"
 								onClick={() => showModal()}
-								disabled={disabled}
+								disabled={disabled || laboral}
 							>
 								<HomeOutlined style={{ fontSize: 20 }} />
 								Recoger en sucursal

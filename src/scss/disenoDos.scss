@@ -116,7 +116,6 @@ p, a, li{
     color: $font-color-navbar;
 }
 
-
 /* NAVBAR CATEGORIAS STYLES */
 /* .categorias-navbar{
     background-color: $bg-color-navbar-categorias;
@@ -164,9 +163,10 @@ p, a, li{
 }
 
 //COLOR DE BORDES DE LAS CARDS
-/* .contenedor-card-producto-principal, .contenedor-card-producto-secundario, .contenedor-card-oferta-gigante, .item-menu-paginas{
-    border-right: 1px solid #e0e0e0;
-} */
+.contenedor-card-producto-principal, .contenedor-card-producto-secundario, .contenedor-card-oferta-gigante, .item-menu-paginas{
+    /* border-right: 1px solid #e0e0e0; */
+    border: none;
+}
 
 /* SEPARADORES */
 

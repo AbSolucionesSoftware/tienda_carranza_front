@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Button, Drawer, Alert, notification, Empty } from 'antd';
 import clienteAxios from '../../../../../config/axios';
 import { withRouter } from 'react-router-dom';
-import Geolocalizacion from '../../../../users/geolocalizacion';
 import './MostrarRegistroTienda.scss';
 import {
 	PlusCircleOutlined,
@@ -187,7 +186,7 @@ function MostrarRegistroTienda(props) {
 							</Button>
 						)}
 						{current < 3 && (
-							<Button className="mx-1" type="primary" onClick={() => next()}>
+							<Button className="mx-1" type="primary" onClick={() => next()} disabled={!datosNegocio}>
 								Siguiente
 							</Button>
 						)}
@@ -203,7 +202,8 @@ function MostrarRegistroTienda(props) {
 					token={token}
 					setLoading={setLoading}
 					steps={[current, setCurrent]}
-					// setReloadInfo={setReloadInfo}
+					reloadInfo={reloadInfo}
+					setReloadInfo={setReloadInfo}
 					// drawnerClose={drawnerClose}
 				/>
 			</Drawer>
@@ -354,17 +354,30 @@ function MostrarRegistroTienda(props) {
 				<div className="row justify-content-around mt-3">
 					<div className="col-lg-4 col-sm-12 shadow ">
 						<p className="h5 font-weight-bold">
-							Horarios de Atención:<span className="h5">
-								{' '}
-								{action === false ? 'Horarios de Atención:' : 
-									<div 
-										style={{lineHeight: "35px"}} 
-										dangerouslySetInnerHTML={{__html: datosNegocio.diasHorariosEmpresas}} 
-										className='mt-1 px-4 ' 
-									/>
-								}
-							</span>
+							Horarios de Atención:
 						</p>
+						{datosNegocio?.horario?.length > 0 ? 
+						datosNegocio.horario.map((horario) => {
+							if(horario.close){
+								return (
+									<div>
+										<p className="h6">
+											<b>{horario.dia}: </b> {horario.horarioInicial} -{' '}
+											{horario.horarioFinal}
+										</p>
+									</div>
+								);
+							}else{
+								return (
+									<div>
+										<p className="h6">
+											<b>{horario.dia}: NO HAY SERVICIO </b>
+										</p>
+									</div>
+								);
+							}
+						})
+						: null}
 					</div>
 				</div>
 

@@ -56,20 +56,20 @@ export default function Card_Producto_Frente(props) {
 									}}
 								/> */}
 							</div>
-								{/* <div className="contenedor-precios-productos">
-									<h2 className="h5 precio-producto text-color mr-2">
-										${formatoMexico(productos.productoPromocion.precio)}
-									</h2>
-									<h3 className="h5 precio-rebaja d-inline mr-1 text-color">
-										${formatoMexico(productos.precioPromocion)}
-									</h3>
-									<p className="h4 porcentaje-descuento d-inline">
-										{agregarPorcentaje(
-											productos.precioPromocion,
-											productos.productoPromocion.precio
-										)}%OFF
-									</p>
-								</div> */}
+							{/* <div className="contenedor-precios-productos">
+								<h2 className="h5 precio-producto text-color mr-2">
+									${formatoMexico(productos.productoPromocion.precio)}
+								</h2>
+								<h3 className="h5 precio-rebaja d-inline mr-1 text-color">
+									${formatoMexico(productos.precioPromocion)}
+								</h3>
+								<p className="h4 porcentaje-descuento d-inline">
+									{agregarPorcentaje(
+										productos.precioPromocion,
+										productos.productoPromocion.precio
+									)}%OFF
+								</p>
+							</div> */}
 						</Card>
 					</Card.Grid>
 				</Link>

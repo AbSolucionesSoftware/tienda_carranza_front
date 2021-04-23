@@ -61,7 +61,7 @@ const DetallesPedido = (props) => {
 			<Divider className="text-center">Detalles del cliente</Divider>
 			<div className="my-2">
 				<h6 className="titulos-info-pedidos">Cliente:</h6>
-				<p className="data-info-pedidos">{pedido.cliente.nombre} {pedido.cliente.apellido}</p>
+				<p className="data-info-pedidos">{pedido.cliente.nombre}</p>
 			</div>
 			<div className="my-2">
 				<h6 className="titulos-info-pedidos">Email:</h6>
