@@ -42,7 +42,7 @@ function Politicas() {
 
     return(
         <Spin spinning={loading} >
-            <div className="container">
+            <div className="container rounded" style={{background: 'white'}}>
                 { politicas.politicas && politicas.politicas !== "" ? (
                     <div id="privacidad" className="m-5">
                         <p className="font-prin text-center mt-4">Politicas de Privacidad</p>
