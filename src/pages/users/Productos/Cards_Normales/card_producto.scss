@@ -30,7 +30,7 @@
     width: 300px;
 }
 .size-col-prin{
-    min-width: 480px;
+    min-width: 470px;
 }
 .size-col-frente{
     min-width: 270px;
@@ -42,6 +42,7 @@
 }
 .contenedor-imagen-oferta{
     display: flex;
+    padding: 2px;
     justify-content: center;
     align-items: center;
 }
@@ -112,8 +113,8 @@
         padding-right: 2%;
     }
     .contenedor-imagen-producto-principal{
-        height: 250px; 
-        width: 130px;
+        height: 230px; 
+        width: 230px;
         display: flex;
         justify-content: center;
         align-items: center;

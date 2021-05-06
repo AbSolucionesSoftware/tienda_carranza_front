@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import tokenEstados from '../../../../../config/tokenEstados';
 
 import "./coberturaEnvios.scss";
 import {
@@ -122,7 +123,7 @@ export default function Cobertura_envios(props) {
       setEstado(value);
       setLoading(true);
       consultaEstados
-        .get(`/get_municipio_por_estado/${value}`)
+        .get(`/get_municipio_por_estado/${value}?token=${tokenEstados}`)
         .then((res) => {
           setLoading(false);
           const datosApiMunicipios = res.data.response.municipios;
@@ -153,7 +154,7 @@ export default function Cobertura_envios(props) {
 
   function obtenerEstados() {
     consultaEstados
-      .get(`/get_estados/`)
+      .get(`/get_estados?token=${tokenEstados}`)
       .then((res) => {
         setEstadoApi(res.data.response.estado);
       })
@@ -235,6 +236,7 @@ export default function Cobertura_envios(props) {
           setTodos(false);
         })
         .catch((err) => {
+          console.log(err.response);
           errors(err);
         });
     } else if (idEstado) {

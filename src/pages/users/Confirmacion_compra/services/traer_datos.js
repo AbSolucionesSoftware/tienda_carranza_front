@@ -9,6 +9,7 @@ import Spin from '../../../../components/Spin';
 
 
 import '../confirmacion.scss';
+import tokenEstados from '../../../../config/tokenEstados';
 
 const consultaCodigos = axios.create({
     baseURL : `https://api-sepomex.hckdrk.mx/query/`
@@ -148,7 +149,7 @@ export default function Traer_datos(props) {
 			});
 		// }else{
 		// 	consultaCodigos
-		// 	.get(`/info_cp/${datosFormulario.cp}`)
+		// 	.get(`/info_cp/${datosFormulario.cp}?token=${tokenEstados}`)
 		// 	.then((res) => {
 		// 	const data = res.data[0].response.municipio;
 		// 		clienteAxios
