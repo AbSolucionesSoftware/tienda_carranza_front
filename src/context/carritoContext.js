@@ -5,6 +5,7 @@ export const MenuContext = createContext()
 export const MenuProvider = ({ children }) => {
   const [active, setActive] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [upload, setUpload] = useState(false);
   const [reloadFilter, setReloadFilter] = useState(true);
   const [ datosContx, setDatosContx ] = useState([]);
   const [ colores, setColores ] = useState({
@@ -34,7 +35,7 @@ export const MenuProvider = ({ children }) => {
   });
 
   return (
-    <MenuContext.Provider value={{active,setActive, loading, setLoading, reloadFilter, setReloadFilter, datosContx, setDatosContx, colores, setColores}}>
+    <MenuContext.Provider value={{setUpload, upload, active, setActive, loading, setLoading, reloadFilter, setReloadFilter, datosContx, setDatosContx, colores, setColores}}>
       {children}
     </MenuContext.Provider>
   );

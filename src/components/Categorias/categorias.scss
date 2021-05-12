@@ -1,5 +1,6 @@
 .categorias-navbar{
     /* height: 40px; */
+    padding: 0%!important;
     display: flex; 
     border: none;
     align-items: center;
@@ -15,6 +16,7 @@
 }
 
 .size-layout-cat{
+    padding: 0%!important;
     height: 30px;
 }
 .size-menu-cat{
@@ -22,6 +24,7 @@
     line-height: normal;
 }
 .size-submenu-cat{
+    padding: 0%!important;
    height: 100%;
 }
 .size-submenu-cat > .ant-menu-submenu-title {

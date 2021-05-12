@@ -48,13 +48,13 @@ export default function Card_Producto_Frente(props) {
 							}
 						>
 							<div className="contenedor-titulos-productos">
-								<h1 className="titulo-producto text-color">{productos.productoPromocion.nombre}</h1>
-								{/* <div
+								<p className="titulo-producto text-color">{productos.productoPromocion.nombre}</p>
+								<div
 								className="text-color"
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.productoPromocion.descripcion)
 									}}
-								/> */}
+								/>
 							</div>
 							{/* <div className="contenedor-precios-productos">
 								<h2 className="h5 precio-producto text-color mr-2">
@@ -108,13 +108,13 @@ export default function Card_Producto_Frente(props) {
 							}
 						>
 							<div className="frente contenedor-titulos-productos">
-								<p className="font-secun titulo-producto text-color">{productos.nombre}</p>
-								{/* <div
+								<p className="text-center font-card-frente text-color">{productos.nombre}</p>
+								<div
 									className="font-peque description text-color"
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.descripcion)
 									}}
-								/> */}
+								/>
 							</div>
 							{/* {!productos.promocion.length ? (
 								<div className="frente contenedor-precios-productos">

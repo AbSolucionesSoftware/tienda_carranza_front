@@ -7,6 +7,8 @@ import './card_producto.scss';
 /* import { formatoMexico, agregarPorcentaje } from '../../../../config/reuserFunction'; */
 import { MenuContext } from '../../../../context/carritoContext';
 import { makeStyles } from '@material-ui/styles';
+import DOMPurify from 'dompurify';
+import { agregarPorcentaje, formatoMexico } from '../../../../config/reuserFunction';
 
 const gridStyle = { width: '100%', padding: 0, marginBottom: '1.5rem' };
 
@@ -48,13 +50,13 @@ export default function Card_Producto(props) {
 							}
 						>
 							<div className="contenedor-titulos-productos">
-								<p className=" titulo-producto text-color">{productos.productoPromocion.nombre}</p>
-								{/* <div
-									className="font-peque description"
+								<p className="titulo-producto text-color">{productos.productoPromocion.nombre}</p>
+								<div
+									className="font-secun description"
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.productoPromocion.descripcion)
 									}}
-								/> */}
+								/>
 							</div>
 							{/* <div className="contenedor-precios-productos">
 								<h2 className="font-peque precio-producto rebajado mr-2">
@@ -109,12 +111,12 @@ export default function Card_Producto(props) {
 						>
 							<div className="contenedor-titulos-productos">
 								<p className="titulo-producto text-color">{productos.nombre}</p>
-								{/* <div
-									className="font-peque description "
+								<div
+									className="font-descrip description"
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.descripcion)
 									}}
-								/> */}
+								/>
 							</div>
 							{/* {!productos.promocion.length ? (
 								<div className="contenedor-precios-productos">

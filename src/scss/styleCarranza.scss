@@ -1,54 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
-$color-blog: #ffff;
+$color-blog: rgb(255, 255, 255);
 
 /* NAVBAR VARIABLES */
 /* $bg-color-navbar: #B11F24; */
-$bg-color-navbar:  #D40005;
-$bg-color-navbar-active: #000000;
-$border-color-active: #000000;
+$bg-color-navbar:  #e28000;
+$bg-color-navbar-active: #ffffff;
+$border-color-active: #ffc340;
 /* $border-color-navbar: #B11F24; */
-$font-color-navbar: rgb(0, 0, 0);
-$font-color-navbar-hover: #CC262A;
-$font-color-navbar-active: #FF585C;
+$font-color-navbar: #000000;
+$font-color-navbar-hover: #ffc340;
+$font-color-navbar-active: #ffffff;
 
 /* NAVBAR CATEGORIAS VARIABLES */
-$bg-color-navbar-categorias:  #FFFFFF;
-$font-color-navbar-categorias: #CC262A;
-$font-color-navbar-categorias-hover: #FF585C;
+$bg-color-navbar-categorias:  #ffffff;
+$font-color-navbar-categorias: #000000;
+$font-color-navbar-categorias-hover: #ffc340;
+$font-color-hover-categoria: #ffd270;
 
 //MINI BANNER SOBRE FOOTER
-$bg-color-banner: #D40005;
+$bg-color-banner: #ff9800;
 $bg-color-font-banner:  rgb(255, 255, 255);
 
 //VARIABLE DE BUSCADOR-SEARCH
-$bg-color-search: #D40005;
-$bg-color-search-hover:#FF585C;
+$bg-color-search: #e28000;
+$bg-color-search-hover:#ffc340;
 
 /* CARDS VARIABLES */
-$bg-color-cards-productos:  #F7F7F7;
+$bg-color-cards-productos:  #ffffff;
 
 /* SPINER VARIABLES */
-$color-spiner: #CC262A;
+$color-spiner: #000000;
 
 /* BUTTONS VARIABLES */
-$color-botones: #D40005;
-$color-botones-hover: #CC262A;
+$color-botones: #ff9800;
+$color-botones-hover: #ffc340;
 $color-botones-font:  #F7F7F7;
-$color-botones-secundario: #FF585C;
+$color-botones-secundario: #ffed6b;
 $color-botones-secundario-text: #000000;
-$color-botones-secundario-border: #CC262A;
+$color-botones-secundario-border: #ff9800;
 $color-botones-sec-hover: #f8f8f8;
 
 /* STEPS VARIABLES */
-$bg-color-steps: #FF585C;
+$bg-color-steps: #ff9800;
 $font-color-steps-inactive: #ffff;
-$bg-color-steps-active: #CC262A;
+$bg-color-steps-active: #ff9800;
 $border-color-steps: #3D3D3D;
 
 /* TABS VARIABLES */
-$color-tabs: #CC262A;
-$color-tabs-hover: #FF585C;
+$color-tabs: #ff9800;
+$color-tabs-hover: #ffc340;
 $color-tabs-border: #3D3D3D;
 
 $bg-color-tags: #F5F5F5;
@@ -56,72 +58,80 @@ $bg-color-tags: #F5F5F5;
 /* FOOTER VARIABLES */
 $bg-color-footer: #3D3D3D;
 $font-color-footer: rgb(255, 255, 255);
-$font-color-footer-hover: #D40005;
+$font-color-footer-hover: #ff9800;
 
 /* BACKGROUND LAYOUT */
-$bg-layout: #F5F5F5;
+$bg-layout: #ffffff;
 
 /* FONT FAMILY STYLES */
 h1, h2, h3, h4, h5, h6{
     /* font-family: 'Roboto', sans-serif; */
-    font-family: 'Montserrat', sans-serif;
+    // font-family: 'Montserrat', sans-serif;
+    font-family: Helvetica;
     font-weight: 400;
 }
 p, a, li{
     /* font-family: 'Roboto', sans-serif; */
-    font-family: 'Montserrat', sans-serif;
+    // font-family: 'Montserrat', sans-serif;
+    font-family: Helvetica;
     font-weight: 400; 
 }
 
 /* LAYOUT */
-.bg-layout{
+/* .bg-layout{
     background-color: $bg-layout;
 }
-
+ */
 /* NAVBAR STYLES */
-.navbar-menu-general{
-    background-color: $bg-color-navbar;
+/* .navbar-menu-general{
+    background-color: $bg-color-navbar-categorias;
+} */
+.navbar-menu-draw{
+    background-color: $bg-color-navbar-categorias;
 }
-.navbar-menu-sesion > .ant-menu-item-selected {
+.navbar-menu-sesion{
+    border-bottom:  none;
+}
+/* .navbar-menu-sesion > .ant-menu-item-selected {
     color: $bg-color-navbar!important;
-    border-bottom:  solid white!important;
-}
-.navbar-menu-general > .ant-menu-item-selected{
+    border-bottom:  solid #e28000!important;
+} */
+/* .navbar-menu-general > .ant-menu-item-selected{
     background-color: $bg-color-navbar-active!important;
-}
+} */
+// VARIABLE DE FOND0 DE NAVBAR
+/* .ant-layout-header{
+    background-color: $bg-color-navbar-categorias;
+} */
+
 .drawer-background .ant-drawer-body{
-    background-color: $bg-color-navbar;
-    border-color: rgb(255, 255, 255);
+    background-color: $bg-color-navbar-categorias;
+    border-color: #e28000;
 }
 .drawer-background .ant-drawer-header{
-    background-color: $bg-color-navbar;
-    border-color: rgb(255, 255, 255);
+    background-color: $bg-color-navbar-categorias;
+    border-color: #e28000;
 }
-.nav-font-color{
+/* .nav-font-color{
     color: $font-color-navbar;
-   /*  border-bottom: none!important; */
-} 
-.nav-font-color:hover{
+}  */
+/* .nav-font-color:hover{
     color: $font-color-navbar-hover!important;
     border-bottom: 3px solid $border-color-active!important;
-    /* border-top: 2px solid $border-color-active!important;
-    border-bottom: none!important; */
-}
-.nav-font-color-sesion:hover{
+} */
+/* .nav-font-color-sesion:hover{
     color: $bg-color-navbar!important;
-    border-bottom: 3px solid white!important;
-    /* border-top: 2px solid $border-color-active!important;
-    border-bottom: none!important; */
-}
+    border-bottom: 3px solid #e28000!important;
+} */
 .menu-responsivo-icon{
     color: $font-color-navbar;
 }
 
 
 /* NAVBAR CATEGORIAS STYLES */
-.categorias-navbar{
+/* .categorias-navbar{
     background-color: $bg-color-navbar-categorias;
-}
+} */
 .categorias-navbar .ant-menu-submenu-title{
     color: $font-color-navbar-categorias!important;
     font-weight: bold!important;
@@ -139,18 +149,15 @@ p, a, li{
     color: $font-color-navbar-categorias;
     border-bottom: none!important;
 } 
-.nav-font-color-categorias:hover{
+/* .nav-font-color-categorias:hover{
     color: $font-color-navbar-categorias-hover!important;
-}
-.nav-font-color-categorias:hover{
+} */
+/* .nav-font-color-categorias::before{
     color: $font-color-navbar-categorias-hover!important;
-}
-.nav-font-color-categorias::before{
+} */
+/* .container-subcategorias-nav > .ant-menu-submenu-title:hover{
     color: $font-color-navbar-categorias-hover!important;
-}
-.container-subcategorias-nav > .ant-menu-submenu-title:hover{
-    color: $font-color-navbar-categorias-hover!important;
-}
+} */
 
 //BORDER DE BUSCADOR
 .border-color-search-boton{
@@ -183,9 +190,10 @@ p, a, li{
 /* CARDS */
 .contenedor-card-body > .ant-card-body{
     padding: 0px!important;
-    background-color: $bg-color-cards-productos; 
+   /*  background-color: $bg-color-cards-productos;  */
     min-height: 90px;
 }
+
 .mini-contenedor-card-body > .ant-card-body{
     min-height: 90px;
     width: auto;
@@ -330,35 +338,92 @@ p, a, li{
 
 .font-prin{
     font-size: 24px;
+    letter-spacing: .9px;
 }
 .font-secun{
     font-size: 18px;
+    // letter-spacing: .9px;
 }
 .font-descrip{
     font-size: 16px;
+    // letter-spacing: .9px;
 }
 .font-peque{
     font-size: 14px;
+    // letter-spacing: .9px;
+}
+.font-card-frente{
+    font-size: 17px;
+    font-weight: bold;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.titulo-producto{
+    font-size: 22px;
+    font-weight: bold;
+    // letter-spacing: .8px;
+    padding-left: 5%;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    padding-right: 2%;
+}
+
+.font-cates{
+    font-size: 18px;
+    text-transform: uppercase;
+    // font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+}
+.font-subcates{
+    font-size: 15px;
+    text-transform: uppercase;
+    // letter-spacing: 1px;
+    // font-weight: bold;
+    -webkit-font-smoothing: antialiased;
 }
 
 .precio-prin{
     font-size: 30px;
+    letter-spacing: .9px;
 }
+
 .font-vista-prod{
     font-size: 15px;
+    letter-spacing: .9px;
 }
+.font-boton-vista{
+    font-size: 18px;
+    letter-spacing: .9px;
+    border-radius: 5px;
+}
+
 .font-foot{
-    font-size: 15px;
+    font-size: 16px;
+    letter-spacing: .9px;
+    font-family: 'Courgette', cursive;
 }
+.font-cat-foot{
+    font-size: 15px;
+    letter-spacing: .9px;
+    text-transform: uppercase;
+}
+.font-foot-normal{
+    font-size: 15px;
+    letter-spacing: .9px;
+}
+
 
 .font-carrito{
     font-size: 24px;
+    letter-spacing: .9px;
 }
 .font-sec-car{
     font-size: 18px;
+    letter-spacing: .9px;
 }
 .font-des-car{
     font-size: 15px;
+    letter-spacing: .9px;
 }
 
 

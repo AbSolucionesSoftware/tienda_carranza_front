@@ -77,7 +77,7 @@ const Categorias = (props) => {
 				{categoria.subcCategoria.map((sub) => {
 					return (
 						<Menu.Item
-							className="font-subcates "
+							className="font-subcates"
 							key={sub._id}
 							onClick={() => {
 								props.history.push(`/filtros/${temporadaSeleccionada}/${categoriaSeleccionada}/${sub._id}/${generoSeleccionado}`);
@@ -128,7 +128,8 @@ const Categorias = (props) => {
 	}); */
 
 	return (
-		<Layout className={"container-subcategorias-nav d-lg-inline size-layout-cat " + classes.background}>
+		// d-lg-inline
+		<Layout className={"container-subcategorias-nav size-layout-cat " + classes.background}>
 			{/* <Spin className="ml-5 d-inline spin-nav-categorias" spinning={loading} />  */}
 			<Menu
 				className={"categorias-navbar d-inline size-menu-cat font-cates " + classes.background }

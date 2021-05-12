@@ -35,7 +35,6 @@ function Jwt(token) {
 
 const FooterPage = (props) => {
 	const { datosContx, colores } = useContext(MenuContext);
-
 	const useStyles = makeStyles({
 		background: {
 			backgroundColor: colores.footer.background,

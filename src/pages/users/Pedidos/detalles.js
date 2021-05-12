@@ -90,16 +90,30 @@ const DetallesPedido = (props) => {
 							<div>
 								<p className="font-weight-bold">Dirección de envio:</p>
 								<p>
-									{' '}
-									{`${detallePedido.cliente.direccion[0].calle_numero} Colonia ${detallePedido.cliente
-										.direccion[0].colonia} ${detallePedido.cliente.direccion[0]
-										.ciudad} ${detallePedido.cliente.direccion[0].estado} ${detallePedido.cliente
-										.direccion[0].pais}.`}{' '}
+									{/* {' '} */}
+									{
+										detallePedido.direccion ? (
+											`${detallePedido.direccion.calle_numero} Colonia ${detallePedido.direccion.colonia} 
+											${detallePedido.direccion.ciudad} ${detallePedido.direccion.estado} 
+											${detallePedido.direccion.pais}.`
+										) : ( 
+											`${detallePedido.cliente.direccion[0].calle_numero} Colonia ${detallePedido.cliente.direccion[0].colonia} 
+											${detallePedido.cliente.direccion[0].ciudad} ${detallePedido.cliente.direccion[0].estado} 
+											${detallePedido.cliente.direccion[0].pais}.`
+										)
+									}
+									
 								</p>
 								<p>
-									{' '}
-									{`Referencia: ${detallePedido.cliente.direccion[0]
-										.entre_calles}. CP: ${detallePedido.cliente.direccion[0].cp}`}{' '}
+									{
+										detallePedido.direccion ? (
+											`Referencia: ${detallePedido.direccion.entre_calles}. CP: ${detallePedido.direccion.cp}`
+										) : ( 
+											`Referencia: ${detallePedido.cliente.direccion[0].entre_calles}. 
+											 CP: ${detallePedido.cliente.direccion[0].cp}`
+										)
+									}
+									
 								</p>
 								<p>
 									<span className="font-weight-bold">Código de seguimiento: </span>

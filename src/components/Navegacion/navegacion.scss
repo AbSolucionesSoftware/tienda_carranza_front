@@ -8,11 +8,13 @@
   // background-color: white;
 }
 .contenedor-logo{
-  margin-left: 20%;
+  // margin-left: 20%;
   height: 85px;
   width: 195px;
   display: flex;
   justify-content: center;
+  justify-items: center;
+  align-content: center;
   align-items: center;
 }
 
@@ -22,6 +24,8 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
+  justify-items: center;
+  align-content: center;
   align-items: center;
 }
 
@@ -49,9 +53,13 @@
 /* TAMAÑOS NAV PRINCIPAL */
 .row-logo-search{
   height: 100%!important;
+  padding: 0%!important;
 }
 .row-logo-search-2{
   display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
   align-items: center;
 }
 
@@ -80,6 +88,7 @@
 //el a4 separa arriba del input
 .a4{
   height: 30px;
+  padding: 0%!important;
 }
 .a5{
   height: 100%;

@@ -500,6 +500,16 @@ function TallasCantidades(props) {
 				) : (
 					<div className="contenedor-button-vista">
 						<div>
+							<div className="p-2">
+								{laboral ? (
+									<Alert
+										className="font-peque "
+										description="Lo sentimos el dia de hoy no laboramos"
+										type="error"
+										showIcon
+									/>
+								) : null}
+							</div>
 							<div>
 								<Button
 									className="d-flex justify-content-center align-items-center size-button-vista color-boton font-boton-vista"

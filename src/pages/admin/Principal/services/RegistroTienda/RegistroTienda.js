@@ -659,14 +659,14 @@ export default function RegistroTienda(props) {
         </div>
       ),
     },
-    {
-      title: "Covertura de envió",
-      content: (
-        <div>
-          <Cobertura_envio />
-        </div>
-      ),
-    },
+    // {
+    //   title: "Covertura de envió",
+    //   content: (
+    //     <div>
+    //       <Cobertura_envio />
+    //     </div>
+    //   ),
+    // },
   ];
 
   return (

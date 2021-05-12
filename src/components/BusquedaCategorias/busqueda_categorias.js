@@ -106,6 +106,7 @@ function BusquedaCategorias(props) {
 	useEffect(
 		() => {
 			obtenerFiltrosDivididos(categoria, subcategoria, temporada, genero);
+			window.scrollTo(0, 0);
 		},
 		[ props.location ]
 	);

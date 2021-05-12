@@ -33,7 +33,7 @@ function Galeria(props) {
 		showPlayButton: false,
 		showNav: false,
 		showFullscreenButton: false,
-		renderItem: myRenderItem,
+		// renderItem: myRenderItem,
 		onThumbnailClick: onLoad,
 		disableKeyDown: true
 	};

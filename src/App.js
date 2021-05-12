@@ -10,11 +10,11 @@ import { MenuContext } from './context/carritoContext';
 import clienteAxios from './config/axios';
 import jwt_decode from 'jwt-decode';
 
-import './scss/styleKryspi.scss';
+import './scss/styleCarranza.scss';
 
 export default function App() {
 
-	const { setDatosContx, setLoading, active, setColores } = useContext(MenuContext);
+	const { setDatosContx, setLoading, upload, setUpload, active, setColores } = useContext(MenuContext);
 	const [nombreTienda, setNombreTienda] = useState('');
 	var decoded = { _id: '' };
 	const token = localStorage.getItem('token');
@@ -26,7 +26,7 @@ export default function App() {
 			return null;
 		}
 	}
-
+	
 	const obtenerInformacionTienda = useCallback(
 		async () => {
 			setLoading(true);
@@ -74,7 +74,7 @@ export default function App() {
 					}
 				})
 				.catch((res) => {
-					console.log(res);
+					// console.log(res);
 					setLoading(false);
 				});
 		},
@@ -84,10 +84,10 @@ export default function App() {
 	useEffect(
 		() => {
 			obtenerInformacionTienda();
+			setUpload(false);
 		},
-		[ obtenerInformacionTienda, active ]
+		[ obtenerInformacionTienda, active, upload]
 	);
-
 
 	return (
 		<div>

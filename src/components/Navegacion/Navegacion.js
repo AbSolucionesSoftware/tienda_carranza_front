@@ -19,7 +19,7 @@ const { Header } = Layout;
 const { SubMenu } = Menu;
 
 const Navegacion = (props) => {
-	const { loading, datosContx, colores } = useContext(MenuContext);
+	const { loading, datosContx, colores, setUpload, upload } = useContext(MenuContext);
 	const [ visible, setVisible ] = useState(false);
 	/* const [ busqueda, setBusqueda] = useState("") */
 	const token = localStorage.getItem('token');
@@ -131,14 +131,14 @@ const Navegacion = (props) => {
 				<Header className={" a1 "+ classes.background }>
 					<div className={"menuCon a2 " + classes.background }>
 						<div className={"top-menu row a3 " + classes.background }>
-							<div className="col-lg-2 row-logo-search ">
+							<div className="col-lg-2 row-logo-search">
 								<div className="row row-logo-search-2 ">
 									{datosContx.tienda && datosContx.tienda.length > 0 ? !datosContx.tienda[0]
 										.imagenLogo ? (
 										<div className="d-none" />
 									) : (
 										<Link to="/">
-											<div className="contenedor-logo">
+											<div className="text-center contenedor-logo">
 												<img
 													className="imagen-logo-principal"
 													alt="logotipo-tienda"
@@ -165,10 +165,10 @@ const Navegacion = (props) => {
 								</div>
 							</div>
 							{/* INICIO DE AVATAR, TU CARRITO Y ENTRAR  */}
-							<div className="col-lg-7 containe-categorias  mt-2">
+							<div className="col-lg-8 containe-categorias mt-2">
 								<Categorias />
 							</div>
-							<div className="col-lg-3 row a4 mt-2 justify-content-end">
+							<div className="col-lg-2 row a4 mt-2 justify-content-end">
 								<div>
 									<Menu
 										className={"float-right navbar-menu-sesion a50 "  + classes.background}

@@ -42,24 +42,24 @@
 /* .image-gallery-image-large{
     
 } */
-.image-gallery-image-large-container{
-    width: 600px!important;
-    height: 500px!important;
-    background-color: #fff;
-}
+// .image-gallery-image-large-container{
+//     width: 600px!important;
+//     height: 500px!important;
+//     background-color: #fff;
+// }
 /* .image-gallery-slide {
     display: flex;
     justify-content: center;
     align-items: center;
 } */
-#zoom-render{
-    position: absolute;
-    z-index: 10;
-    width: 600px!important;
-    height: 500px!important;
-    margin-left: 94%;
-    display: none;
-}
+// #zoom-render{
+//     position: absolute;
+//     z-index: 10;
+//     width: 600px!important;
+//     height: 500px!important;
+//     margin-left: 94%;
+//     display: none;
+// }
 .zoom:hover > #zoom-render{
     display: block;
 }

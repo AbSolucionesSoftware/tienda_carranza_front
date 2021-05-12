@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Carousel from './Carusel_ofertas/carousel';
 /* import ConsultaProductos from './Productos/consulta_productos'; */
 /* import Ofertas from './Ofertas/ofertasHome';
@@ -12,6 +12,7 @@ import OfertasDerecha from './Ofertas/OfertasHome/ofertasDerecha';
 import OfertasCentro from './Ofertas/OfertasHome/ofertasCentro'; */
 
 import './home.scss'
+import { setLogLevel } from 'firebase';
 
 export default function Home(props) {
 
