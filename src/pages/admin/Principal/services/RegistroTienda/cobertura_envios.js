@@ -23,7 +23,7 @@ import {
 import clienteAxios from "../../../../../config/axios";
 
 const consultaEstados = axios.create({
-  baseURL: `https://api-sepomex.hckdrk.mx/query/`,
+  // baseURL: `https://api-sepomex.hckdrk.mx/query/`,
 });
 
 export default function Cobertura_envios(props) {

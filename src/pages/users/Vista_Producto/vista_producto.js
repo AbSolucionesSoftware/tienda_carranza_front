@@ -7,7 +7,7 @@ import Sugerencia from './subs/sugerencia';
 import Galeria from './Galeria_tienda/galeria';
 import TallasCantidades from './subs/cantidades_y_tallas';
 import InfoTienda from './Info_tienda/info-tienda';
-import Envio_General from '../Consulta_covertura/envio_general';
+// import Envio_General from '../Consulta_covertura/envio_general';
 import 'antd/dist/antd.css';
 import './vistas.scss';
 import { formatoMexico, agregarPorcentaje } from '../../../config/reuserFunction';
