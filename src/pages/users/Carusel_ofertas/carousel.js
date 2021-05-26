@@ -47,7 +47,7 @@ function CarouselOfertas(props) {
 	});
 
 	return (
-		<BannerAnim autoPlay /* activeIndex={index} */ /* onSelect={handleSelect} */ prefixCls="banner-user" delay={200}>
+		<BannerAnim autoPlay /* activeIndex={index} */ /* onSelect={handleSelect} */ prefixCls="banner-user" autoPlaySpeed={2000} autoPlayEffect={false}>
 				{render}
 		</BannerAnim>
 	);
