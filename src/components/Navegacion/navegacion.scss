@@ -13,6 +13,14 @@
   width: 195px;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.contenedor-logo-responsivo{
+  // margin-left: 20%;
+  height: 50px;
+  width: 90px;
+  display: flex;
+  justify-content: center;
   justify-items: center;
   align-content: center;
   align-items: center;
@@ -24,8 +32,6 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  justify-items: center;
-  align-content: center;
   align-items: center;
 }
 
@@ -64,11 +70,10 @@
 }
 
 .a00{
-  height: 5px;
+  height: 10px;
 }
-.a0{
-  height: 100px;
-  font-weight: bold;
+.a01{
+  height: 50px;
 }
 
 .a1{
@@ -107,6 +112,10 @@
 }
 
 @media(max-width: 992px){
+  .a0{
+    height: 70px;
+    font-weight: bold;
+  }
   .barsMenu{
     display: inline-block;
   }
@@ -115,6 +124,7 @@
   }
   .top-menu-responsive{
     width: 100%;
+    padding: 0% !important;
     display: flex;
     justify-content: space-between;
   }
@@ -127,8 +137,26 @@
     padding: 0;
 
   } */
+  .car-responsive{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0% !important;
+  }
+  .contenedor-logo{
+    padding: 0% !important;
+    height: 60px;
+    width: 115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+/*   .ant-layout-header{
+    padding: 0;
+
+  } */
   .search-nav-responsive{
-    width: 89%;
+    width: 100%;
   }
 }
 .contenedor-logo-draw{

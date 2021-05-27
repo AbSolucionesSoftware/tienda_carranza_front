@@ -27,7 +27,7 @@ export default function Card_Producto_Frente(props) {
 
 	if (productos.precioPromocion) {
 		return (
-			<div key={productos._id} className="size-col-prin col-lg-2 col-6">
+			<div key={productos._id} className="size-col col-lg-2 col-6">
 				<Link to={`/vista_producto/${productos.productoPromocion._id}`}>
 					<Card.Grid hoverable style={gridStyle} className={"contenedor-card-producto-principal " + classes.background}>
 						<Card
@@ -77,7 +77,7 @@ export default function Card_Producto_Frente(props) {
 		);
 	} else {
 		return (
-			<div key={productos._id} className="size-col-frente col-lg-2 col-6">
+			<div key={productos._id} className="frente size-col col-lg-2 col-6">
 				<Link to={`/vista_producto/${productos._id}`}>
 					<Card.Grid hoverable style={gridStyle} className={"frente contenedor-card-producto-principal " + classes.background}>
 						<Card
@@ -97,7 +97,7 @@ export default function Card_Producto_Frente(props) {
 										<div className="d-none" />
 									)}
 
-									<div className="contenedor-imagen-producto-principal ">
+									<div className="contenedor-imagen-producto-principal">
 										<img
 											className="imagen-producto-principal"
 											alt="producto"
@@ -110,7 +110,7 @@ export default function Card_Producto_Frente(props) {
 							<div className="frente contenedor-titulos-productos">
 								<p className="text-center font-card-frente text-color">{productos.nombre}</p>
 								<div
-									className="font-peque description text-color"
+									className="font-peque description text-color d-none d-lg-block"
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.descripcion)
 									}}

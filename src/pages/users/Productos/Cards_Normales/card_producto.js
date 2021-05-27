@@ -112,7 +112,7 @@ export default function Card_Producto(props) {
 							<div className="contenedor-titulos-productos">
 								<p className="titulo-producto text-color">{productos.nombre}</p>
 								<div
-									className="font-descrip description"
+									className="font-descrip description d-none d-lg-block"
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.descripcion)
 									}}

@@ -97,7 +97,7 @@ export default function LayoutBasic(props) {
 		<div className="body">
 			<ColorCustomizer />
 			<Layout>
-				<div className="cuerpo bg-layout">
+				<div className={"cuerpo bg-layout " + classes.background}>
 					<Layout>
 						<Navegacion />
 						{/* <Categorias /> */}

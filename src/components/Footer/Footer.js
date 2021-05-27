@@ -83,7 +83,7 @@ const FooterPage = (props) => {
 							{datosContx.tienda.length > 0 && datosContx.tienda[0].telefono ? (
 								<div className="row mt-3">
 									<PhoneOutlined
-										className="mt-1 text-color"
+										className="mt-1 text-color d-none d-lg-block"
 										style={{ fontSize: 55, marginLeft: 5 }}
 									/>
 									<div className="px-3 mt-2">
@@ -151,7 +151,7 @@ const FooterPage = (props) => {
 							</div>
 						</div>
 						{datosContx.tienda.length > 0 && datosContx.tienda[0].horario.length > 0 ? (
-							<div className="col-lg-3 mt-4">
+							<div className="col-lg-3 mt-4 d-none d-lg-block">
 								<div className="container">
 									<p className="font-foot text-color">
 										<span className="font-weight-bold">Horarios de Atención:</span>
