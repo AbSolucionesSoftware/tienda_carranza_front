@@ -143,7 +143,7 @@ export default function PoliticasEnvio(props) {
 					setLoading(false);
 					// setReloadInfo(true);
 					// drawnerClose();
-					setCurrent(current + 1);
+					// setCurrent(current + 1);
 					notification.success({
 						message: '¡Listo!',
 						description: res.data.message,
@@ -187,7 +187,7 @@ export default function PoliticasEnvio(props) {
 					setLoading(false);
 					// setReloadInfo(true);
 					// drawnerClose();
-					setCurrent(current + 1);
+					// setCurrent(current + 1);
 					notification.success({
 						message: '¡Listo!',
 						description: res.data.message,

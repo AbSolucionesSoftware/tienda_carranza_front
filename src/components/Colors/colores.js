@@ -268,7 +268,7 @@ export default function ColorCustomizer() {
 				handleVisibleChange();
 			})
 			.catch((res) => {
-				console.log(res.response);
+				// console.log(res.response);
 				setLoading(false);
 				notification.error({
 					message: 'Hubo un error',

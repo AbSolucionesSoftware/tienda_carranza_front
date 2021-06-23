@@ -44,6 +44,8 @@ const DetallesPedido = (props) => {
 										'#5cb85c'
 									) : detallePedido.estado_pedido === 'Enviado' ? (
 										'#0088ff'
+									) : detallePedido.estado_pedido === 'Tomado' ? (
+										'#F26F48'
 									) : (
 										'#ffc401'
 									)

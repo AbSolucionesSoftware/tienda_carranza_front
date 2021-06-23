@@ -212,7 +212,7 @@ function Pedidos(props) {
 									<h6 className="titulos-info-pedidos">Estado:</h6>
 									<Tag
 										className="data-info-pedidos"
-										color={pedidos.estado_pedido === 'Entregado' ? '#5cb85c' : pedidos.estado_pedido === 'Enviado' ? '#0088ff' : '#ffc401'}
+										color={pedidos.estado_pedido === 'Entregado' ? '#5cb85c' : pedidos.estado_pedido === 'Enviado' ? '#0088ff' : pedidos.estado_pedido  === 'Tomado' ? '#F26F48' : '#ffc401'}
 									>
 										{pedidos.estado_pedido}
 									</Tag>

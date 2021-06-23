@@ -311,6 +311,8 @@ function Pedido(props) {
 						color={
 							pedido.estado_pedido === 'Entregado' ? (
 								'#5cb85c'
+							) : pedido.estado_pedido  === 'Tomado' ? (
+								'#F26F48'
 							) : pedido.estado_pedido === 'Enviado' ? (
 								'#0088ff'
 							) : (
@@ -356,6 +358,8 @@ function Pedido(props) {
 												'#5cb85c'
 											) : pedido.estado_pedido === 'Enviado' ? (
 												'#0088ff'
+											) : pedido.estado_pedido === 'Tomado' ? (
+												'#F26F48'
 											) : (
 												'#ffc401'
 											)

@@ -25,24 +25,23 @@ function CarouselOfertas(props) {
 	const render = datosContx.carrucel.map((carousel) => {
 			return (
 				<Element prefixCls="banner-user-elem" key={carousel._id}>
-					<BgElement
-						onClick={() =>
-							props.history.push(
-							/* esPromocion
-							? `/vista_producto/${carousel.productoPromocion._id}`
-							:  */carousel.producto ? `/vista_producto/${carousel.producto}` : '/'
-						)}
-						key="bg"
-						className="bg banner-elemento"
-						alt="img-oferta"
-						style={{
-							backgroundImage: `url(${aws + carousel.imagen})`,
-							cursor: 'pointer' 
-						}}
-					>
-					</BgElement>
+					<a href={carousel.nombre === "app" ?  "https://play.google.com/store/apps/details?id=com.fractalstudio.carranza" : null}  target="_blank" >
+						<BgElement
+							onClick={() =>
+								props.history.push(
+								carousel.producto ? `/vista_producto/${carousel.producto}` : '/'
+							)}
+							key="bg"
+							className="bg banner-elemento"
+							alt="img-oferta"
+							style={{
+								backgroundImage: `url(${aws + carousel.imagen})`,
+								cursor: 'pointer' 
+							}}
+						>
+						</BgElement>
+					</a>
 				</Element>
-				
 			);
 	});
 

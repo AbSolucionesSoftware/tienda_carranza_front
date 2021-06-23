@@ -14,7 +14,7 @@ function Politicas() {
                 setLoading(false);
                 // if (res.data[0].politicas !== "") {
                 setPoliticas(res.data[0]);
-                console.log(res.data[0]);
+                // console.log(res.data[0]);
 			})
 			.catch((err) => {
                 if(err.response){

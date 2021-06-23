@@ -141,6 +141,7 @@ const EstadoPedido = (props) => {
 			<Menu.Item key="En proceso" disabled={IDpedido.estado_pedido === 'Enviado' || disabled ? true : false}>
 				En proceso
 			</Menu.Item>
+			<Menu.Item key="Tomado">Tomar Pedido</Menu.Item>
 			<Menu.Item key="Enviado">Enviado</Menu.Item>
 			<Menu.Item key="Entregado">Entregado</Menu.Item>
 		</Menu>

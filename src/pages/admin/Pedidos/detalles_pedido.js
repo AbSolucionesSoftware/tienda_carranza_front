@@ -44,7 +44,7 @@ const DetallesPedido = ({datosDetalle}) => {
 			</div>
 			<div className="my-2">
 				<h6 className="titulos-info-pedidos">Estado:</h6>
-				<Tag className="data-info-pedidos" color={pedido.estado_pedido === 'Entregado' ? '#5cb85c' : pedido.estado_pedido === 'Enviado' ? '#0088ff' : '#ffc401'}>
+				<Tag className="data-info-pedidos" color={pedido.estado_pedido === 'Entregado' ? '#5cb85c' : pedido.estado_pedido === 'Enviado' ? '#0088ff' : pedido.estado_pedido === 'Tomado' ? '#F26F48' : '#ffc401'}>
 					{pedido.estado_pedido}
 				</Tag>
 			</div>
